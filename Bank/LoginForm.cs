@@ -8,18 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Bank
+namespace GUI
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
+            textBox1.GotFocus += ;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             MessageBox.Show("Yfdfd");
         }
+
+        private void PlaceHolderFocused()
+        {
+
+        }
+        private void PlaceHolderLostFocus()
+        { }
     }
 }
