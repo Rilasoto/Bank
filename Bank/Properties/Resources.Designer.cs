@@ -63,9 +63,9 @@ namespace Bank.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Info_I_Logo {
+        internal static System.Drawing.Bitmap face {
             get {
-                object obj = ResourceManager.GetObject("Info-I-Logo", resourceCulture);
+                object obj = ResourceManager.GetObject("face", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Bank.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Info_I_Logo1 {
+        internal static System.Drawing.Bitmap face1 {
             get {
-                object obj = ResourceManager.GetObject("Info-I-Logo1", resourceCulture);
+                object obj = ResourceManager.GetObject("face1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -24,6 +24,11 @@ namespace Logics
             return instance;
         }
 
+        public Controller()
+        {
+            dBAdapter = DBAdapter.DBAdapter.GetInstance();
+        }
+
         internal void Login(string login, string password)
         {
             User loggedUser = dBAdapter.Login(login, password);
@@ -32,6 +37,7 @@ namespace Logics
                 OpenUserForm(loggedUser);
             }
         }
+
         void OpenUserForm(User loggedUser)
         {
             if (loggedUser != null)
@@ -45,9 +51,17 @@ namespace Logics
                 }
             }
         }
+
+        internal void OpenRegForm()
+        {
+            activeForm = new RegForm();
+            activeForm.Show();
+        }
+
         void OpenClientForm(Client loggedClient)
         {
-            new ClientForm
+            activeForm = new ClientForm();
+            activeForm.Show();
         }
 
     }

@@ -21,7 +21,7 @@ namespace DBAdapter
         internal User Login(string login, string password) //Определяем кто это по типу
         {
             throw new NotImplementedException(); //Создавать объекты клиентов или манагеров будет адаптер, в базе можно какую-нибудь булевскую переменную (манагер/не манагер)
-
+            
         }
     }
 }
