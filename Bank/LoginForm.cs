@@ -7,27 +7,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logics;
 
 namespace GUI
 {
     public partial class LoginForm : Form
     {
+        bool text1Changed = false, text2Changed = false;
+        Controller c;
+
         public LoginForm()
         {
             InitializeComponent();
-            textBox1.GotFocus += ;
+
+            c = Controller.GetInstance();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void textBox2_Enter(object sender, EventArgs e)
         {
-            MessageBox.Show("Yfdfd");
+            if (!text2Changed)
+            {
+                textBox2.Text = "";
+            }
         }
 
-        private void PlaceHolderFocused()
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            
         }
-        private void PlaceHolderLostFocus()
-        { }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            c.Login(textBox1.Text, textBox2.Text);
+        }
+
+        private void textBox_Enter(object sender, EventArgs e)
+        {
+            if(!text1Changed)
+            {
+                textBox1.Text = "";
+            }
+        }
     }
 }
