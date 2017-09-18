@@ -8,5 +8,12 @@ namespace Bank
 {
     class Controller
     {
+        static Controller controller;
+        public static Controller GetInstance()
+        {
+            if (controller == null)
+                controller = new Controller();
+            return controller;
+        }
     }
 }

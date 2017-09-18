@@ -29,5 +29,10 @@ namespace GUI
         }
         private void PlaceHolderLostFocus()
         { }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Не нажимай!");
+        }
     }
 }
