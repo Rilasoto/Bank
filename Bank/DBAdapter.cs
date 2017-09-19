@@ -55,10 +55,11 @@ namespace DBAdapter
                     Client newClient = new Client(dt.Rows[0][0].ToString(), dt.Rows[0][1].ToString(), dt.Rows[0][2].ToString());
                     return newClient;
                 }
-                //if (dt.Rows[0][3].ToString() == "Менеджер") // Менеджер
-                //{
-
-                //}
+                if (dt.Rows[0][3].ToString() == "Менеджер") // Менеджер
+                {
+                    User newmanager = new User(dt.Rows[0][0].ToString(), dt.Rows[0][1].ToString(), dt.Rows[0][2].ToString());
+                    return newmanager;
+                }
             }
             //Создавать объекты клиентов или манагеров будет адаптер, в базе можно какую-нибудь булевскую переменную (манагер/не манагер)
             return null;

@@ -45,12 +45,13 @@ namespace GUI
             else
             {
                 controller.addman(loginBox.Text,passwordBox.Text,surnameBox.Text,nameBox.Text,patronymicBox.Text,dateTimePicker1.Value,passportBox.Text,emailBox.Text);
+                this.Close();
             }
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
-            string pattern = "\\w*@\\w\\.\\w*";
+            string pattern = "\\w+@\\w+\\.\\w+";
             if (!Regex.IsMatch(emailBox.Text, pattern))
             {
                 erroremail.Visible = true;
