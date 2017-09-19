@@ -60,7 +60,7 @@ namespace Logics
 
         void OpenClientForm(Client loggedClient)
         {
-            activeForm = new ClientForm();
+            activeForm = new ClientForm(loggedClient);
             activeForm.Show();
         }
 

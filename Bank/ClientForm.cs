@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logics;
 
 namespace GUI
 {
@@ -15,9 +16,14 @@ namespace GUI
         int day = 0, hour = 0, minute = 0;
         double second = 0.0;
         bool typedate = false;
-        public ClientForm()
+        public ClientForm(Object c)
         {
+            Client b = (Client)c; 
             InitializeComponent();
+            surnameLabel.Text = b.Surname;
+            nameLabel.Text = b.Name;
+            patronymicLabel.Text = b.Patronymic;
+
             timer1.Start();
         }
 
