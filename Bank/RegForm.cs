@@ -38,15 +38,14 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (surnameBox.Text == "" || nameBox.Text == "" || patronymicBox.Text == "" || emailBox.Text == "" || passportBox.Text == "")
+            if (surnameBox.Text == "" || nameBox.Text == "" || patronymicBox.Text == "" || emailBox.Text == "" || passportBox.Text == "" || errorPassPic.Visible == true || loginErrorPic.Visible == true || erroremail.Visible == true)
             {
-                MessageBox.Show("Не все данные заполнены!", "Ошибка");
+                MessageBox.Show("Не все данные заполнены верно!", "Ошибка");
             }
-            if (surnameBox.Text == "") { label1.ForeColor = Color.Red; }
-            if (nameBox.Text == "") { label2.ForeColor = Color.Red; }
-            if (patronymicBox.Text == "") { label3.ForeColor = Color.Red; }
-            if (emailBox.Text == "") { label5.ForeColor = Color.Red; }
-            if (passportBox.Text == "") { label6.ForeColor = Color.Red; }
+            else
+            {
+                controller.addman(loginBox.Text,passwordBox.Text,surnameBox.Text,nameBox.Text,patronymicBox.Text,dateTimePicker1.Value,passportBox.Text,emailBox.Text);
+            }
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
@@ -54,11 +53,11 @@ namespace GUI
             string pattern = "\\w*@\\w\\.\\w*";
             if (!Regex.IsMatch(emailBox.Text, pattern))
             {
-                pictureBox1.Visible = true;
+                erroremail.Visible = true;
             }
             else
             {
-                pictureBox1.Visible = false;
+                erroremail.Visible = false;
             }
         }
 
@@ -85,17 +84,23 @@ namespace GUI
             timer2.Start();
         }
 
+        private void RegForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
         private void timer2_Tick(object sender, EventArgs e)
         {
             if (loginBox.Text != "")
             {
                 if (controller.CheckIfLoginExists(loginBox.Text))
-                    loginErrorPic.Visible = false;
-                else
                     loginErrorPic.Visible = true;
-                MessageBox.Show("Update");
+                else
+                    loginErrorPic.Visible = false;
+                timer2.Stop();
+      
             }
-            timer2.Stop();
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)

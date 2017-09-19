@@ -32,6 +32,19 @@ namespace DBAdapter
             return dt;
         }
 
+        public string RunInsert(string zapros)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            connection.Open();
+            cmd.CommandText = zapros;
+            cmd.ExecuteNonQuery();
+            cmd.Clone();
+            connection.Close();
+            return "Ок";
+        }
+
         internal User Login(string login, string password) //Определяем кто это по типу
         {
             DataTable dt = RunSelect("Select Employees.Surname as Фамилия,Employees.Name as Имя,Employees.Patronymic as Отчество, Positions.Position_Name as Должность, Employees.Birth_Date as ДатаРождения   From (Autorization inner join Employees on Autorization.ID_Employee = Employees.ID_Employee) inner join Positions on Employees.Position = Positions.ID_Position where Login = '" + login+ "' and Password = '" + password+"'");
@@ -51,6 +64,19 @@ namespace DBAdapter
             return null;
         }
 
+        internal string AddNewEmployee(string login, string password, string surname, string name, string patronyc, DateTime birth, string passport, string email)
+        {
+            try
+            {
+                RunInsert("Insert into Employees(Surname,Name,Patronymic,Birth_Date,Email,Passport_Seria,Position) Values ('" + surname + "','" + name + "','" + patronyc + "','" + birth + "','" + email + "','" + passport + "',3)");
+                return "Ок";
+            }
+            catch
+            {
+                return "Не Ок";
+            }
+            }
+
         internal bool CheckIfLoginExists(string login)// "ПроверитьСуществуетЛиТакойЛогин true-существует/
         {
             if (RunSelect("Select * From Autorization where Login = '" + login + "'").Rows.Count == 0)
@@ -59,7 +85,6 @@ namespace DBAdapter
             {
                 return true;
             }
-
         }
     }
 }
