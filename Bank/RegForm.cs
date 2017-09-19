@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using Logics;
+using System.Text.RegularExpressions;
 
 namespace GUI
 {
@@ -42,7 +43,18 @@ namespace GUI
             if (maskedTextBox1.Text == "") { label6.ForeColor = Color.Red; }
         }
 
-
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            string pattern = "\\w*@\\w\\.\\w*";
+            if (!Regex.IsMatch(textBox6.Text, pattern))
+            {
+                pictureBox1.Visible = true;
+            }
+            else
+            {
+                pictureBox1.Visible = false;
+            }
+        }
 
         private void RegForm_Load(object sender, EventArgs e)
         {
