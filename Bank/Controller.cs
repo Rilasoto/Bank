@@ -64,6 +64,9 @@ namespace Logics
             activeForm.Show();
         }
 
-       
+        internal bool CheckIfLoginExists(string login)
+        {
+            return dBAdapter.CheckIfLoginExists(login);
+        }
     }
 }

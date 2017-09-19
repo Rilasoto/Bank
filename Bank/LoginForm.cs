@@ -23,6 +23,7 @@ namespace GUI
         {
             InitializeComponent();
             c = Controller.GetInstance();
+            timer1.Interval = 1000;
             timer1.Start();
         }
 
@@ -52,7 +53,7 @@ namespace GUI
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime date1 = DateTime.Now;
-            second += 0.103;
+            second += 1;
             if (second >= 60)
             {
                 second = 0;
@@ -90,7 +91,6 @@ namespace GUI
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-
         }
 
         private void textBox_Enter(object sender, EventArgs e)

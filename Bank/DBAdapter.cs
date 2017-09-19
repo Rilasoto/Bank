@@ -23,5 +23,10 @@ namespace DBAdapter
             throw new NotImplementedException(); //Создавать объекты клиентов или манагеров будет адаптер, в базе можно какую-нибудь булевскую переменную (манагер/не манагер)
             
         }
+
+        internal bool CheckIfLoginExists(string login)// "ПроверитьСуществуетЛиТакойЛогин true-существует/
+        {
+            return true;
+        }
     }
 }
