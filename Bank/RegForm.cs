@@ -125,11 +125,11 @@ namespace GUI
             }
             if (typedate)
             {
-                label8.Text = day.ToString() + " дней " + hour.ToString() + " часов " + minute.ToString() + " минут " + Math.Round(second, 0).ToString() + " секунд";
+                labelTime.Text = day.ToString() + " дней " + hour.ToString() + " часов " + minute.ToString() + " минут " + Math.Round(second, 0).ToString() + " секунд";
             }
             else
             {
-                label8.Text = date1.ToString();
+                labelTime.Text = date1.ToString();
             }
         }
 
