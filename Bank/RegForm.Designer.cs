@@ -147,7 +147,7 @@
             this.emailBox.TabIndex = 4;
             this.emailBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.emailBox, "В формате 123@123.123");
-            this.emailBox.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.emailBox.TextChanged += new System.EventHandler(this.textBoxEmail_TextChanged);
             // 
             // dateTimePicker1
             // 
@@ -169,7 +169,7 @@
             this.buttonSubmit.Text = "Зарегистрироваться";
             this.toolTip1.SetToolTip(this.buttonSubmit, "Тыкни сюда");
             this.buttonSubmit.UseVisualStyleBackColor = true;
-            this.buttonSubmit.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
             // passportBox
             // 
@@ -238,7 +238,7 @@
             this.buttonSettings.TabIndex = 0;
             this.buttonSettings.TabStop = false;
             this.buttonSettings.UseVisualStyleBackColor = false;
-            this.buttonSettings.Click += new System.EventHandler(this.button2_Click);
+            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
             // 
             // loginLabel
             // 
@@ -296,7 +296,7 @@
             this.password2Box.PasswordChar = '*';
             this.password2Box.Size = new System.Drawing.Size(169, 20);
             this.password2Box.TabIndex = 3;
-            this.password2Box.TextChanged += new System.EventHandler(this.password2Box_TextChanged);
+            this.password2Box.TextChanged += new System.EventHandler(this.textBoxPassword2_TextChanged);
             // 
             // labelSurname
             // 

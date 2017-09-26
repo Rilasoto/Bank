@@ -23,7 +23,7 @@ namespace Logics
             }
             return instance;
         }
-        public void addman(string login,string password,string surname,string name, string patronyc,DateTime birth,string passport, string email)
+        public void AddUser(string login,string password,string surname,string name, string patronyc,DateTime birth,string passport, string email)
         {
             dBAdapter.AddNewEmployee(login,  password,  surname,  name,  patronyc,  birth,  passport,  email);
         }

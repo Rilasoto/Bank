@@ -21,7 +21,7 @@ namespace GUI
 
         Controller controller;
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonSettings_Click(object sender, EventArgs e)
         {
             typedate = !typedate;
         }
@@ -36,7 +36,7 @@ namespace GUI
             controller = Controller.GetInstance();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonSubmit_Click(object sender, EventArgs e)
         {
             if (surnameBox.Text == "" || nameBox.Text == "" || patronymicBox.Text == "" || emailBox.Text == "" || passportBox.Text == "" || errorPassPic.Visible == true || loginErrorPic.Visible == true || erroremail.Visible == true)
             {
@@ -44,12 +44,12 @@ namespace GUI
             }
             else
             {
-                controller.addman(loginBox.Text,passwordBox.Text,surnameBox.Text,nameBox.Text,patronymicBox.Text,dateTimePicker1.Value,passportBox.Text,emailBox.Text);
+                controller.AddUser(loginBox.Text, passwordBox.Text, surnameBox.Text, nameBox.Text, patronymicBox.Text, dateTimePicker1.Value, passportBox.Text, emailBox.Text);
                 this.Close();
             }
         }
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
+        private void textBoxEmail_TextChanged(object sender, EventArgs e)
         {
             string pattern = "\\w+@\\w+\\.\\w+";
             if (!Regex.IsMatch(emailBox.Text, pattern))
@@ -62,7 +62,7 @@ namespace GUI
             }
         }
 
-        private void password2Box_TextChanged(object sender, EventArgs e)
+        private void textBoxPassword2_TextChanged(object sender, EventArgs e)
         {
             if (passwordBox.Text != password2Box.Text)
             {
@@ -99,9 +99,9 @@ namespace GUI
                 else
                     loginErrorPic.Visible = false;
                 timer2.Stop();
-      
+
             }
-            
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
