@@ -61,7 +61,7 @@
             this.textBox2.Size = new System.Drawing.Size(185, 20);
             this.textBox2.TabIndex = 1;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
+            this.textBox2.Enter += new System.EventHandler(this.textPassword_Enter);
             // 
             // buttonSubmit
             // 
@@ -96,7 +96,6 @@
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(0, 15);
             this.labelTime.TabIndex = 5;
-            this.labelTime.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelTitle
             // 
@@ -108,7 +107,6 @@
             this.labelTitle.Size = new System.Drawing.Size(172, 30);
             this.labelTitle.TabIndex = 6;
             this.labelTitle.Text = "Авторизация";
-            this.labelTitle.Click += new System.EventHandler(this.label2_Click);
             // 
             // timer1
             // 
@@ -128,7 +126,7 @@
             this.buttonSettings.TabIndex = 11;
             this.buttonSettings.TabStop = false;
             this.buttonSettings.UseVisualStyleBackColor = false;
-            this.buttonSettings.Click += new System.EventHandler(this.button3_Click);
+            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
             // 
             // labelLogin
             // 
@@ -154,6 +152,7 @@
             // 
             // LoginForm
             // 
+            this.AcceptButton = this.buttonSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(209, 234);
@@ -170,7 +169,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginForm";
             this.Text = "OurBank";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -8,23 +8,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logics;
+using DBAdapter;
 
 namespace GUI
 {
     public partial class ClientForm : Form
     {
+        User user;
         int day = 0, hour = 0, minute = 0;
         double second = 0.0;
         bool typedate = false;
-        public ClientForm(Object c)
+
+        public ClientForm(User user)
         {
-            Client b = (Client)c; 
+            this.user = user;
             InitializeComponent();
-            surnameLabel.Text = b.Surname;
-            nameLabel.Text = b.Name;
-            patronymicLabel.Text = b.Patronymic;
+            surnameLabel.Text = user.Surname;
+            nameLabel.Text = user.Name;
+            patronymicLabel.Text = user.Patronymic;
+            LoadLastTransactions();
 
             timer1.Start();
+        }
+
+        void LoadLastTransactions()
+        {
+            dataGridView1.DataSource = DB.GetInstance().RunSelect("select top 10 Account_ID as Счет, ServiceName as Услуга, Sum as Сумма from Payments join Accounts on Payments.Account_ID = Accounts.ID_Account join Service on Service_ID = ID_Service where Accounts.Employee_ID = " + user.Id + " order by ID_Payment");
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -36,6 +45,31 @@ namespace GUI
         private void button2_Click(object sender, EventArgs e)
         {
             typedate = !typedate;
+        }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes == MessageBox.Show("Выйти?", "Выход", MessageBoxButtons.YesNo))
+            {
+                this.Close();
+                LoginForm.GetInstance().Close();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TransactionForm.GetInstance().Show();
+            TransactionForm.GetInstance().Focus();
+        }
+
+        private void курсыВалютToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ExchangeRates().Show();
+        }
+
+        private void ClientForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LoginForm.GetInstance().Show();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -65,11 +99,6 @@ namespace GUI
             {
                 label10.Text = date1.ToString();
             }
-        }
-
-        private void ClientForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

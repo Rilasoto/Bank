@@ -7,16 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DBAdapter;
+using Logics;
 
 namespace GUI
 {
-    public partial class ExchangeRates : Form
+    public partial class ManagerForm : Form
     {
-        public ExchangeRates()
+        public ManagerForm(User loggedUser)
         {
             InitializeComponent();
         }
-
     }
 }

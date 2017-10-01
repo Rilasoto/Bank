@@ -8,26 +8,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logics;
+using DBAdapter;
 
 namespace GUI
 {
     public partial class LoginForm : Form
     {
+        static LoginForm instance;
         bool text1Changed = false, text2Changed = false;
         int day = 0, hour = 0, minute = 0;
         double second = 0.0;
         bool typedate = false;
-        Controller c;
+        DB db;
 
         public LoginForm()
         {
             InitializeComponent();
-            c = Controller.GetInstance();
+            db = DB.GetInstance();
             timer1.Interval = 1000;
             timer1.Start();
         }
 
-        private void textBox2_Enter(object sender, EventArgs e)
+        public static LoginForm GetInstance()
+        {
+            if (instance == null)
+                instance = new LoginForm();
+            return instance;
+        }
+
+        private void textPassword_Enter(object sender, EventArgs e)
         {
             if (!text2Changed)
             {
@@ -37,17 +46,27 @@ namespace GUI
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            c.OpenRegForm();  
+            LoginForm.GetInstance().Hide();
+            new RegForm().Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            c.Login(textBox1.Text, textBox2.Text);
-        }
+            User loggedUser = db.Login(textBox1.Text, textBox2.Text);
+            if (loggedUser != null)
+                if (loggedUser.IsManager)
+                {
+                    new ManagerForm(loggedUser).Show();
+                    this.Hide();
+                }
+                else
+                {
+                    new ClientForm(loggedUser).Show();
+                    this.Hide();
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+                }
+            else
+                MessageBox.Show("Неверный логин/пароль");
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -79,23 +98,14 @@ namespace GUI
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonSettings_Click(object sender, EventArgs e)
         {
             typedate = !typedate;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-        }
-
         private void textBox_Enter(object sender, EventArgs e)
         {
-            if(!text1Changed)
+            if (!text1Changed)
             {
                 textBox1.Text = "";
             }

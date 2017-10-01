@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using Logics;
 using System.Text.RegularExpressions;
+using DBAdapter;
 
 namespace GUI
 {
@@ -18,13 +19,7 @@ namespace GUI
         public int day = 0, hour = 0, minute = 0;
         double second = 0.0;
         bool typedate = false;
-
-        Controller controller;
-
-        private void buttonSettings_Click(object sender, EventArgs e)
-        {
-            typedate = !typedate;
-        }
+        DB db;
 
         public RegForm()
         {
@@ -33,7 +28,12 @@ namespace GUI
             timer1.Interval = 1000;
             timer1.Start();
             timer2.Interval = 2000;
-            controller = Controller.GetInstance();
+            db = DB.GetInstance();
+        }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            typedate = !typedate;
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
@@ -44,8 +44,15 @@ namespace GUI
             }
             else
             {
-                controller.AddUser(loginBox.Text, passwordBox.Text, surnameBox.Text, nameBox.Text, patronymicBox.Text, dateTimePicker1.Value, passportBox.Text, emailBox.Text);
-                this.Close();
+                if (db.AddNewEmployee(loginBox.Text, passwordBox.Text, surnameBox.Text, nameBox.Text, patronymicBox.Text, dateBirth.Value, emailBox.Text, passportBox.Text, richGivenBy.Text, dateGiven.Value, textRegAddress.Text))
+                {
+                    MessageBox.Show("Регистрация прошла успешно");
+                    this.Close();
+                    LoginForm.GetInstance().Show();
+                }
+
+                else
+                    MessageBox.Show("Ошибка");
             }
         }
 
@@ -94,7 +101,7 @@ namespace GUI
         {
             if (loginBox.Text != "")
             {
-                if (controller.CheckIfLoginExists(loginBox.Text))
+                if (db.CheckIfLoginExists(loginBox.Text))
                     loginErrorPic.Visible = true;
                 else
                     loginErrorPic.Visible = false;

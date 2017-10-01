@@ -6,29 +6,37 @@ using System.Threading.Tasks;
 
 namespace Logics
 {
-    class User
+    public class User
     {
+        int id;
+        bool isManager;
         DateTime birthDate;
-        string surname, name, patronymic,passport,email;
+        string surname, name, patronymic, passport, email;
 
-        public string Surname
+        public int Id { get => id; set => id = value; }
+        public string Surname { get => surname; set => surname = value; }
+        public string Name { get => name; set => name = value; }
+        public string Patronymic { get => patronymic; set => patronymic = value; }
+        public string Passport { get => passport; set => passport = value; }
+        public string Email { get => email; set => email = value; }
+        public bool IsManager { get => isManager; set => isManager = value; }
+
+        public User()
         {
-            get { return surname; }
-            set { surname = value; }
-        }
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-        public string Patronymic
-        {
-            get { return patronymic; }
-            set { patronymic = value; }
+
         }
 
-        public User(DateTime birthDate, string surname, string name, string patronymic, string passport, string email)
+        public User(string surname, string name, string patronymic)
         {
+            this.Surname = surname;
+            this.Name = name;
+            this.Patronymic = patronymic;
+        }
+
+        public User(int id, bool isManager, DateTime birthDate, string surname, string name, string patronymic, string passport, string email)
+        {
+            this.Id = id;
+            this.IsManager = isManager;
             this.birthDate = birthDate;
             this.surname = surname;
             this.name = name;
@@ -36,32 +44,5 @@ namespace Logics
             this.passport = passport;
             this.email = email;
         }
-        public User(string surname, string name, string patronymic)
-        {
-            this.surname = surname;
-            this.name = name;
-            this.patronymic = patronymic;
-        }
     }
-
-
-     class Client : User
-    {
-        string accountID;
-
-        
-        public Client(DateTime birthDate, string accountID, string surname, string name, string patronymic, string passport, string email) : base(birthDate, surname, name, patronymic, passport, email)
-        {
-        }
-        public Client(string surname, string name, string patronymic) : base( surname, name, patronymic)
-        {
-        }
-    }
-    class Manager : User
-    {
-        public Manager(DateTime birthDate, string surname, string name, string patronymic, string passport, string email) : base(birthDate, surname, name, patronymic, passport, email)
-        {
-        }
-    }
-
 }
