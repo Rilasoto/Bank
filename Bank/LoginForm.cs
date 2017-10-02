@@ -69,6 +69,11 @@ namespace GUI
                 MessageBox.Show("Неверный логин/пароль");
         }
 
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime date1 = DateTime.Now;

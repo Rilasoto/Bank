@@ -13,9 +13,21 @@ namespace GUI
 {
     public partial class ExchangeRates : Form
     {
+        DB db;
         public ExchangeRates()
         {
             InitializeComponent();
+            db = DB.GetInstance();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            db.GetExchangeRates(dateTimePicker1.Value);
+        }
+
+        private void ExchangeRates_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

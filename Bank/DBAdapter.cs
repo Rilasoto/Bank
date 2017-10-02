@@ -18,8 +18,9 @@ namespace DBAdapter
 
         public DB()
         {
-            connection = new SqlConnection("Data Source=DESKTOP-V4KR3NR;Initial Catalog=ProjectBank;Integrated Security=True");//Ринат
+            //connection = new SqlConnection("Data Source=DESKTOP-V4KR3NR;Initial Catalog=ProjectBank;Integrated Security=True");//Ринат
             //connection = new SqlConnection("Data Source=DESKTOP-4E4QD9H;Initial Catalog=ProjectBank;Integrated Security=True");//Егор
+             connection = new SqlConnection("Data Source=OVERLORD-2;Initial Catalog=ProjectBank;Integrated Security=True");//Михаил
         }
 
         public static DB GetInstance()
@@ -133,6 +134,16 @@ namespace DBAdapter
         internal bool CheckIfLoginExists(string login)// "ПроверитьСуществуетЛиТакойЛогин true-существует/
         {
             if (RunSelect("Select * From Autorization where Login = '" + login + "'").Rows.Count == 0)
+            { return false; }
+            else
+            {
+                return true;
+            }
+        }
+
+        internal Currency GetExchangeRates(DateTime date)
+        {
+            if (RunSelect("Select * From ExchangeRates where Date = '" + date + "'").Rows.Count == 0)
             { return false; }
             else
             {
