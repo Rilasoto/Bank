@@ -97,6 +97,17 @@ namespace GUI
 
         }
 
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LoginForm.GetInstance().Show();
+        }
+
+        private void RegForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LoginForm.GetInstance().Show();
+        }
+
         private void timer2_Tick(object sender, EventArgs e)
         {
             if (loginBox.Text != "")

@@ -65,6 +65,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textRegAddress = new System.Windows.Forms.TextBox();
+            this.cancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.erroremail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginErrorPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorPassPic)).BeginInit();
@@ -172,7 +173,7 @@
             // buttonSubmit
             // 
             this.buttonSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSubmit.Location = new System.Drawing.Point(578, 244);
+            this.buttonSubmit.Location = new System.Drawing.Point(486, 244);
             this.buttonSubmit.Name = "buttonSubmit";
             this.buttonSubmit.Size = new System.Drawing.Size(169, 22);
             this.buttonSubmit.TabIndex = 10;
@@ -426,6 +427,17 @@
             this.textRegAddress.Size = new System.Drawing.Size(255, 20);
             this.textRegAddress.TabIndex = 12;
             // 
+            // cancelButton
+            // 
+            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cancelButton.Location = new System.Drawing.Point(661, 244);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(86, 22);
+            this.cancelButton.TabIndex = 10;
+            this.cancelButton.Text = "Отмена";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
             // RegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,6 +456,7 @@
             this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.labelRepeat);
             this.Controls.Add(this.labelPassword);
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.buttonSubmit);
             this.Controls.Add(this.loginBox);
             this.Controls.Add(this.loginLabel);
@@ -451,6 +464,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegForm";
             this.Text = "OurBank";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegForm_FormClosed);
             this.Load += new System.EventHandler(this.RegForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.erroremail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginErrorPic)).EndInit();
@@ -498,5 +512,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textRegAddress;
+        private System.Windows.Forms.Button cancelButton;
     }
 }
