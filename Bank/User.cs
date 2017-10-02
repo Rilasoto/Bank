@@ -13,13 +13,13 @@ namespace Logics
         DateTime birthDate;
         string surname, name, patronymic, passport, email;
 
-        public int Id { get => id; set => id = value; }
-        public string Surname { get => surname; set => surname = value; }
-        public string Name { get => name; set => name = value; }
-        public string Patronymic { get => patronymic; set => patronymic = value; }
-        public string Passport { get => passport; set => passport = value; }
-        public string Email { get => email; set => email = value; }
-        public bool IsManager { get => isManager; set => isManager = value; }
+        public int Id { get {return id;}  set {id = value;} }
+        public string Surname { get { return surname; } set { surname = value; } }
+        public string Name { get { return name; } set { name = value; } }
+        public string Patronymic { get { return patronymic; } set { patronymic = value; } }
+        public string Passport { get { return passport; } set { passport = value; } }
+        public string Email { get { return  email; } set { email = value; } }
+        public bool IsManager { get { return isManager; } set { isManager = value; } }
 
         public User()
         {
