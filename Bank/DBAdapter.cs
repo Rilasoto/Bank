@@ -143,12 +143,16 @@ namespace DBAdapter
 
         internal Currency GetExchangeRates(DateTime date)
         {
-            if (RunSelect("Select * From ExchangeRates where Date = '" + date + "'").Rows.Count == 0)
-            { return false; }
-            else
+            DataTable dt = RunSelect("Select * From ExchangeRates where Date = '" + date + "'");
+            if (dt.Rows.Count != 0)
             {
-                return true;
+                Currency curr = new Currency();
+                DataRow row = dt.Rows[0];
+                curr.In = (float)row["Exchange_rates_in"];
+                curr.Out = (float)row["Exchange_rates_out"];
+                curr.Date = date;                
             }
+            return null;
         }
     }
 }

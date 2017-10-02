@@ -67,6 +67,7 @@
     <Compile Include="ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Currency.cs" />
     <Compile Include="DBAdapter.cs" />
     <Compile Include="ExchangeRates.cs">
       <SubType>Form</SubType>

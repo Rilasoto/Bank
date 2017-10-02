@@ -23,6 +23,7 @@ namespace GUI
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             db.GetExchangeRates(dateTimePicker1.Value);
+           
         }
 
         private void ExchangeRates_Load(object sender, EventArgs e)
