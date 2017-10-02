@@ -18,5 +18,9 @@ namespace GUI
             InitializeComponent();
         }
 
+        private void ExchangeRates_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
