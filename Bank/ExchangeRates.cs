@@ -13,22 +13,25 @@ namespace GUI
 {
     public partial class ExchangeRates : Form
     {
-        DB db;
         public ExchangeRates()
         {
             InitializeComponent();
-            db = DB.GetInstance();
+            DataTable dollardt = DB.GetInstance().RunSelect("select TOP 1 Exchange_rates_out,Exchange_rates_in From ExchangeRates  where Date <='" + dateTimePicker1.Value + "' and ID_Currency1 = 1 ORDER BY Date DESC");
+            DataTable eurodt = DB.GetInstance().RunSelect("select TOP 1 Exchange_rates_out,Exchange_rates_in From ExchangeRates where Date <='" + dateTimePicker1.Value + "' and ID_Currency1 = 2 ORDER BY Date DESC");
+            DollarBuy.Text = dollardt.Rows[0][0].ToString();
+            DollarSell.Text = dollardt.Rows[0][1].ToString();
+            EuroBuy.Text = eurodt.Rows[0][0].ToString();
+            EuroSell.Text = eurodt.Rows[0][1].ToString();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            db.GetExchangeRates(dateTimePicker1.Value);
-           
-        }
-
-        private void ExchangeRates_Load(object sender, EventArgs e)
-        {
-
+            DataTable dollardt = DB.GetInstance().RunSelect("select TOP 1 Exchange_rates_out,Exchange_rates_in From ExchangeRates  where Date <='" + dateTimePicker1.Value + "' and ID_Currency1 = 1 ORDER BY Date DESC");
+            DataTable eurodt = DB.GetInstance().RunSelect("select TOP 1 Exchange_rates_out,Exchange_rates_in From ExchangeRates where Date <='" + dateTimePicker1.Value + "' and ID_Currency1 = 2 ORDER BY Date DESC");
+            DollarBuy.Text = dollardt.Rows[0][0].ToString();
+            DollarSell.Text = dollardt.Rows[0][1].ToString();
+            EuroBuy.Text = eurodt.Rows[0][0].ToString();
+            EuroSell.Text = eurodt.Rows[0][1].ToString();
         }
     }
 }
