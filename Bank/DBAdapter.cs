@@ -13,13 +13,12 @@ namespace DBAdapter
     {
         static DB instance;
 
-        //string connectionString = "Data Source=DESKTOP-V4KR3NR;Initial Catalog=ProjectBank;Integrated Security=True";
         SqlConnection connection;
 
         public DB()
         {
-            //connection = new SqlConnection("Data Source=DESKTOP-V4KR3NR;Initial Catalog=ProjectBank;Integrated Security=True");//Ринат
-            connection = new SqlConnection("Data Source=DESKTOP-4E4QD9H;Initial Catalog=ProjectBank;Integrated Security=True");//Егор
+            connection = new SqlConnection("Data Source=DESKTOP-V4KR3NR;Initial Catalog=ProjectBank;Integrated Security=True");//Ринат
+            //connection = new SqlConnection("Data Source=DESKTOP-4E4QD9H;Initial Catalog=ProjectBank;Integrated Security=True");//Егор
             //connection = new SqlConnection("Data Source=OVERLORD-2;Initial Catalog=ProjectBank;Integrated Security=True");//Михаил
         }
 
@@ -143,7 +142,7 @@ namespace DBAdapter
 
         internal Currency GetExchangeRates(DateTime date)
         {
-            DataTable dt = RunSelect("Select * From ExchangeRates where Date = '" + date + "'");
+            DataTable dt = RunSelect("Select * From ExchangeRates where Date = '" + date.ToString() + "'");
             if (dt.Rows.Count != 0)
             {
                 Currency curr = new Currency();
