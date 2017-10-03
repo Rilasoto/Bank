@@ -67,6 +67,11 @@ namespace GUI
             new ExchangeRates().Show();
         }
 
+        private void информацияОБанкеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new InfoAboutBank().Show();
+        }
+
         private void ClientForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             LoginForm.GetInstance().Show();

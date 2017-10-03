@@ -26,8 +26,22 @@ namespace GUI
         }
         public void LoadRating(User user)
         {
-            DataRow dr = db.RunSelect("select Rating from EmployeeRating where Employee_ID = " + user.Id).Rows[0];
-            ratingLabel.Text = dr[0].ToString();
+            DataTable dt = db.RunSelect("select Manager_DateOfWork,Manager_Raiting,Manager_HolidayDays from Employees where ID_Employee = " + user.Id);
+            rating.Text = dt.Rows[0][1].ToString();
+            holidays.Text = dt.Rows[0][2].ToString();
+           
+            TimeSpan span = ((DateTime.Today - Convert.ToDateTime(dt.Rows[0][0])));
+            expa.Text = (span.Days / 365).ToString();
+        }
+
+        private void ManagerForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void информацияОБанкеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new InfoAboutBank().Show();
         }
     }
 }
