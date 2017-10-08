@@ -81,6 +81,12 @@
     <Compile Include="ExchangeRates.designer.cs">
       <DependentUpon>ExchangeRates.cs</DependentUpon>
     </Compile>
+    <Compile Include="InfoAboutBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoAboutBank.Designer.cs">
+      <DependentUpon>InfoAboutBank.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ExchangeRates.resx">
       <DependentUpon>ExchangeRates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoAboutBank.resx">
+      <DependentUpon>InfoAboutBank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
