@@ -51,5 +51,10 @@ namespace GUI
         {
             new ClientsCatalog().Show(this);
         }
+
+        private void инфоОБанкеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new InfoAboutBank().Show();
+        }
     }
 }
