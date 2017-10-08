@@ -40,11 +40,10 @@
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.клиентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.рейтингМенеджеровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.графикОтпусковToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.стажToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ratingLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.remainingHolidaysLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -133,14 +132,12 @@
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
             this.выходToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // справочникиToolStripMenuItem
             // 
             this.справочникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.клиентыToolStripMenuItem,
-            this.рейтингМенеджеровToolStripMenuItem,
-            this.графикОтпусковToolStripMenuItem,
-            this.стажToolStripMenuItem});
+            this.клиентыToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.справочникиToolStripMenuItem.Text = "Справочники";
@@ -148,51 +145,54 @@
             // клиентыToolStripMenuItem
             // 
             this.клиентыToolStripMenuItem.Name = "клиентыToolStripMenuItem";
-            this.клиентыToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.клиентыToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.клиентыToolStripMenuItem.Text = "Клиенты";
-            // 
-            // рейтингМенеджеровToolStripMenuItem
-            // 
-            this.рейтингМенеджеровToolStripMenuItem.Name = "рейтингМенеджеровToolStripMenuItem";
-            this.рейтингМенеджеровToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.рейтингМенеджеровToolStripMenuItem.Text = "Рейтинг менеджеров";
-            // 
-            // графикОтпусковToolStripMenuItem
-            // 
-            this.графикОтпусковToolStripMenuItem.Name = "графикОтпусковToolStripMenuItem";
-            this.графикОтпусковToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.графикОтпусковToolStripMenuItem.Text = "График отпусков";
-            // 
-            // стажToolStripMenuItem
-            // 
-            this.стажToolStripMenuItem.Name = "стажToolStripMenuItem";
-            this.стажToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.стажToolStripMenuItem.Text = "Стаж";
+            this.клиентыToolStripMenuItem.Click += new System.EventHandler(this.клиентыToolStripMenuItem_Click);
             // 
             // ratingLabel
             // 
             this.ratingLabel.AutoSize = true;
-            this.ratingLabel.Location = new System.Drawing.Point(46, 195);
+            this.ratingLabel.Location = new System.Drawing.Point(181, 166);
             this.ratingLabel.Name = "ratingLabel";
-            this.ratingLabel.Size = new System.Drawing.Size(48, 13);
+            this.ratingLabel.Size = new System.Drawing.Size(55, 13);
             this.ratingLabel.TabIndex = 11;
-            this.ratingLabel.Text = "Рейтинг";
+            this.ratingLabel.Text = "Значение";
             // 
-            // button1
+            // label2
             // 
-            this.button1.Location = new System.Drawing.Point(311, 190);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Обслуживание";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(133, 166);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Рейтинг:";
+            // 
+            // remainingHolidaysLabel
+            // 
+            this.remainingHolidaysLabel.AutoSize = true;
+            this.remainingHolidaysLabel.Location = new System.Drawing.Point(308, 179);
+            this.remainingHolidaysLabel.Name = "remainingHolidaysLabel";
+            this.remainingHolidaysLabel.Size = new System.Drawing.Size(55, 13);
+            this.remainingHolidaysLabel.TabIndex = 11;
+            this.remainingHolidaysLabel.Text = "Значение";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(133, 179);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(179, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Неиспользованных дней отпуска:";
             // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 223);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(435, 208);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.remainingHolidaysLabel);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.ratingLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -203,6 +203,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ManagerForm";
             this.Text = "ManagerForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ManagerForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -224,10 +225,9 @@
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem справочникиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem клиентыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem рейтингМенеджеровToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem графикОтпусковToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem стажToolStripMenuItem;
         private System.Windows.Forms.Label ratingLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label remainingHolidaysLabel;
+        private System.Windows.Forms.Label label4;
     }
 }

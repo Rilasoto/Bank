@@ -30,10 +30,10 @@ namespace DBAdapter
         }
         public DataTable RunSelect(string zapros)
         {
-            SqlDataAdapter dataadapter = new SqlDataAdapter(zapros, connection);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(zapros, connection);
             DataTable dt = new DataTable();
             connection.Open();
-            dataadapter.Fill(dt);
+            dataAdapter.Fill(dt);
             connection.Close();
             return dt;
         }
@@ -136,7 +136,7 @@ namespace DBAdapter
                 DataRow row = dt.Rows[0];
                 curr.In = (float)row["Exchange_rates_in"];
                 curr.Out = (float)row["Exchange_rates_out"];
-                curr.Date = date;                
+                curr.Date = date;
             }
             return null;
         }

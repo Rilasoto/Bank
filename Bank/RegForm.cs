@@ -48,7 +48,15 @@ namespace GUI
                 {
                     MessageBox.Show("Регистрация прошла успешно");
                     this.Close();
-                    LoginForm.GetInstance().Show();
+                    if (Owner is ClientsCatalog)
+                    {
+                        (Owner as ClientsCatalog).InitializeDatagrid();
+                        (Owner as ClientsCatalog).SelectLastRow();
+                    }
+                    else
+                    {
+                        LoginForm.GetInstance().Show();
+                    }
                 }
 
                 else
@@ -100,12 +108,15 @@ namespace GUI
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-            LoginForm.GetInstance().Show();
         }
 
         private void RegForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            LoginForm.GetInstance().Show();
+            if (this.Owner != null)
+                if (Owner is ClientsCatalog)
+                    (Owner as ClientsCatalog).EnterViewMode();
+                else
+                    LoginForm.GetInstance().Show();
         }
 
         private void timer2_Tick(object sender, EventArgs e)

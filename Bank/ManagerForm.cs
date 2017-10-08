@@ -22,12 +22,34 @@ namespace GUI
             nameLabel.Text = loggedUser.Name;
             patronymicLabel.Text = loggedUser.Patronymic;
             LoadRating(loggedUser);
+            LoadRemainigHolidays(loggedUser);
 
         }
         public void LoadRating(User user)
         {
-            DataRow dr = db.RunSelect("select Rating from EmployeeRating where Employee_ID = " + user.Id).Rows[0];
+            DataRow dr = db.RunSelect("select Manager_Raiting from Employees where ID_Employee = " + user.Id).Rows[0];
             ratingLabel.Text = dr[0].ToString();
+        }
+
+        void LoadRemainigHolidays(User user)
+        {
+            DataRow dr = db.RunSelect("select Manager_HolidayDays from Employees where ID_Employee = " + user.Id).Rows[0];
+            remainingHolidaysLabel.Text = dr[0].ToString();
+        }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoginForm.GetInstance().Close();
+        }
+
+        private void ManagerForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LoginForm.GetInstance().Show();
+        }
+
+        private void клиентыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ClientsCatalog().Show(this);
         }
     }
 }

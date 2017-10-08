@@ -67,6 +67,12 @@
     <Compile Include="ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClientsCatalog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientsCatalog.Designer.cs">
+      <DependentUpon>ClientsCatalog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Currency.cs" />
     <Compile Include="DBAdapter.cs" />
     <Compile Include="ExchangeRates.cs">
@@ -104,6 +110,9 @@
     <Compile Include="User.cs" />
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientsCatalog.resx">
+      <DependentUpon>ClientsCatalog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExchangeRates.resx">
       <DependentUpon>ExchangeRates.cs</DependentUpon>
