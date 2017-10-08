@@ -31,7 +31,7 @@ namespace GUI
             timer1.Start();
         }
 
-        void LoadLastTransactions()
+        public void LoadLastTransactions()
         {
             dataGridView1.DataSource = DB.GetInstance().RunSelect("select top 10 Account_ID as Счет, ServiceName as Услуга, Sum as Сумма from Payments join Accounts on Payments.Account_ID = Accounts.ID_Account join Service on Service_ID = ID_Service where Accounts.Employee_ID = " + user.Id + " order by ID_Payment");
         }
@@ -58,8 +58,8 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TransactionForm.GetInstance().Show();
-            TransactionForm.GetInstance().Focus();
+            TransactionForm.GetInstance(user).Show(this);
+            TransactionForm.GetInstance(user).Focus();
         }
 
         private void курсыВалютToolStripMenuItem_Click(object sender, EventArgs e)

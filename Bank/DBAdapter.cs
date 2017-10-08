@@ -17,8 +17,8 @@ namespace DBAdapter
 
         public DB()
         {
-            connection = new SqlConnection("Data Source=DESKTOP-V4KR3NR;Initial Catalog=ProjectBank;Integrated Security=True");//Ринат
-            //connection = new SqlConnection("Data Source=DESKTOP-4E4QD9H;Initial Catalog=ProjectBank;Integrated Security=True");//Егор
+            //connection = new SqlConnection("Data Source=DESKTOP-V4KR3NR;Initial Catalog=ProjectBank;Integrated Security=True");//Ринат
+            connection = new SqlConnection("Data Source=DESKTOP-4E4QD9H;Initial Catalog=ProjectBank;Integrated Security=True");//Егор
             //connection = new SqlConnection("Data Source=OVERLORD-2;Initial Catalog=ProjectBank;Integrated Security=True");//Михаил
         }
 
@@ -104,19 +104,6 @@ namespace DBAdapter
             }
             return null;
         }
-
-        //internal string AddNewEmployee(string login, string password, string surname, string name, string patronyc, DateTime birth, string passport, string email)
-        //{
-        //    try
-        //    {
-        //        RunInsert("Insert into Employees(Surname,Name,Patronymic,Birth_Date,Email,Passport_Seria,Position) Values ('" + surname + "','" + name + "','" + patronyc + "','" + birth + "','" + email + "','" + passport + "',3)");
-        //        return "Ок";
-        //    }
-        //    catch
-        //    {
-        //        return "Не Ок";
-        //    }
-        //}
 
         internal bool AddNewEmployee(string login, string password, string surname, string name, string patronymic, DateTime birth, string email, string passportID, string passportGivenBy, DateTime dateGiven, string regAddress)
         {

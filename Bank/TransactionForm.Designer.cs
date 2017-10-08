@@ -32,13 +32,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.servicesComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.sumTextBox = new System.Windows.Forms.TextBox();
             this.payButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.addButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.accountsComboBox = new System.Windows.Forms.ComboBox();
             this.cancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -57,7 +57,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 18);
+            this.label2.Location = new System.Drawing.Point(6, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 1;
@@ -66,7 +66,7 @@
             // servicesComboBox
             // 
             this.servicesComboBox.FormattingEnabled = true;
-            this.servicesComboBox.Location = new System.Drawing.Point(6, 34);
+            this.servicesComboBox.Location = new System.Drawing.Point(9, 32);
             this.servicesComboBox.Name = "servicesComboBox";
             this.servicesComboBox.Size = new System.Drawing.Size(169, 21);
             this.servicesComboBox.TabIndex = 2;
@@ -74,38 +74,31 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 58);
+            this.label3.Location = new System.Drawing.Point(6, 56);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 1;
             this.label3.Text = "Номер счета";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(6, 74);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(169, 20);
-            this.textBox1.TabIndex = 3;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 97);
+            this.label4.Location = new System.Drawing.Point(6, 95);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "Сумма";
             // 
-            // textBox2
+            // sumTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 113);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(169, 20);
-            this.textBox2.TabIndex = 3;
+            this.sumTextBox.Location = new System.Drawing.Point(9, 111);
+            this.sumTextBox.Name = "sumTextBox";
+            this.sumTextBox.Size = new System.Drawing.Size(169, 20);
+            this.sumTextBox.TabIndex = 3;
             // 
             // payButton
             // 
-            this.payButton.Location = new System.Drawing.Point(19, 139);
+            this.payButton.Location = new System.Drawing.Point(22, 137);
             this.payButton.Name = "payButton";
             this.payButton.Size = new System.Drawing.Size(75, 23);
             this.payButton.TabIndex = 4;
@@ -115,9 +108,15 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 37);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(349, 170);
             this.dataGridView1.TabIndex = 5;
             // 
@@ -133,25 +132,33 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.accountsComboBox);
             this.groupBox1.Controls.Add(this.servicesComboBox);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cancelButton);
             this.groupBox1.Controls.Add(this.payButton);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.sumTextBox);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Location = new System.Drawing.Point(12, 37);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(349, 170);
+            this.groupBox1.Size = new System.Drawing.Size(196, 170);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Оплата";
             this.groupBox1.Visible = false;
             // 
+            // accountsComboBox
+            // 
+            this.accountsComboBox.FormattingEnabled = true;
+            this.accountsComboBox.Location = new System.Drawing.Point(9, 72);
+            this.accountsComboBox.Name = "accountsComboBox";
+            this.accountsComboBox.Size = new System.Drawing.Size(169, 21);
+            this.accountsComboBox.TabIndex = 5;
+            // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(100, 139);
+            this.cancelButton.Location = new System.Drawing.Point(103, 137);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 4;
@@ -164,14 +171,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 222);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.dataGridView1);
             this.MinimumSize = new System.Drawing.Size(465, 261);
             this.Name = "TransactionForm";
             this.Text = "TransactionForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TransactionForm_FormClosed);
+            this.Load += new System.EventHandler(this.TransactionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -186,13 +194,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox servicesComboBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox sumTextBox;
         private System.Windows.Forms.Button payButton;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.ComboBox accountsComboBox;
     }
 }
