@@ -87,6 +87,12 @@
     <Compile Include="InfoAboutBank.Designer.cs">
       <DependentUpon>InfoAboutBank.cs</DependentUpon>
     </Compile>
+    <Compile Include="InteractiveMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InteractiveMap.Designer.cs">
+      <DependentUpon>InteractiveMap.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InfoAboutBank.resx">
       <DependentUpon>InfoAboutBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InteractiveMap.resx">
+      <DependentUpon>InteractiveMap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -187,6 +196,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exclamation-mark-red-md.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Рисунок1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

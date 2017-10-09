@@ -72,6 +72,11 @@ namespace GUI
             new InfoAboutBank().Show();
         }
 
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new InteractiveMap().Show();
+        }
+
         private void ClientForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             LoginForm.GetInstance().Show();
