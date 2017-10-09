@@ -272,6 +272,7 @@
             this.emailBox.TabIndex = 21;
             this.emailBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.emailBox, "В формате 123@123.123");
+            this.emailBox.TextChanged += new System.EventHandler(this.emailBox_TextChanged);
             // 
             // buttonSubmit
             // 
@@ -283,6 +284,7 @@
             this.buttonSubmit.Text = "Зарегистрироваться";
             this.toolTip1.SetToolTip(this.buttonSubmit, "Тыкни сюда");
             this.buttonSubmit.UseVisualStyleBackColor = true;
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
             // labelTitle
             // 
@@ -312,6 +314,7 @@
             this.passwordBox.PasswordChar = '*';
             this.passwordBox.Size = new System.Drawing.Size(169, 20);
             this.passwordBox.TabIndex = 19;
+            this.passwordBox.TextChanged += new System.EventHandler(this.passwordBox_TextChanged);
             // 
             // labelRepeat
             // 
@@ -352,6 +355,7 @@
             this.cancelButton.TabIndex = 27;
             this.cancelButton.Text = "Отмена";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // loginBox
             // 
@@ -386,6 +390,7 @@
             this.buttonSettings.TabIndex = 14;
             this.buttonSettings.TabStop = false;
             this.buttonSettings.UseVisualStyleBackColor = false;
+            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
             // 
             // errorPassPic
             // 
