@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeClientInformtion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeClientInformtion.Designer.cs">
+      <DependentUpon>ChangeClientInformtion.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
       <DependentUpon>TransactionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="ChangeClientInformtion.resx">
+      <DependentUpon>ChangeClientInformtion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </EmbeddedResource>
