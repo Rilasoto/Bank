@@ -27,13 +27,23 @@ namespace GUI
             nameLabel.Text = user.Name;
             patronymicLabel.Text = user.Patronymic;
             LoadLastTransactions();
-
+           
             timer1.Start();
         }
 
         public void LoadLastTransactions()
         {
-            dataGridView1.DataSource = DB.GetInstance().RunSelect("select top 10 Account_ID as Счет, ServiceName as Услуга, Sum as Сумма from Payments join Accounts on Payments.Account_ID = Accounts.ID_Account join Service on Service_ID = ID_Service where Accounts.Employee_ID = " + user.Id + " order by ID_Payment");
+            dataGridView1.DataSource = DB.GetInstance().RunSelect(@"select ID_Payment as [Номер платежа] ,DateOfPayment as [Дата платежа], ServiceName as [Услуга], Sum as Сумма
+                                                                        from Payments left join Accounts on Payments.Account_ID = Accounts.ID_Account
+                                                                                      left join Service on Service_ID = ID_Service 
+                                                                                      left join Credits on Payments.Credit_ID = Credits.ID_Credit
+                                                                                      where Accounts.Employee_ID = " + user.Id + @"
+                                                                                            OR Credits.Employee_ID = " + user.Id + " order by DateOfPayment");
+
+            DebetDataGrid.DataSource = DB.GetInstance().RunSelect(@"Select Numbers as Счет,SummDebit as [Сумма на балансе]
+                                                                    From Accounts where Employee_ID ='" + this.user.Id + "' ");
+            CreditDataGrid.DataSource = DB.GetInstance().RunSelect(@"Select StartDate as [Дата кредитования],TotalSumm as [Задолжность], MonthlySumm as [Месячный платеж]
+                                                                    From Credits where Employee_ID ='" + this.user.Id + "' ");
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -70,6 +80,11 @@ namespace GUI
         private void информацияОБанкеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new InfoAboutBank().Show();
+        }
+
+        private void ClientForm_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void ClientForm_FormClosed(object sender, FormClosedEventArgs e)
