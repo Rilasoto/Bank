@@ -81,7 +81,7 @@
             this.label1.Location = new System.Drawing.Point(221, 34);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(194, 31);
+            this.label1.Size = new System.Drawing.Size(157, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Меню клиента";
             // 
@@ -92,7 +92,7 @@
             this.surnameLabel.Location = new System.Drawing.Point(16, 34);
             this.surnameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.surnameLabel.Name = "surnameLabel";
-            this.surnameLabel.Size = new System.Drawing.Size(91, 23);
+            this.surnameLabel.Size = new System.Drawing.Size(72, 18);
             this.surnameLabel.TabIndex = 1;
             this.surnameLabel.Text = "Фамилия";
             // 
@@ -103,7 +103,7 @@
             this.nameLabel.Location = new System.Drawing.Point(16, 55);
             this.nameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(48, 23);
+            this.nameLabel.Size = new System.Drawing.Size(40, 18);
             this.nameLabel.TabIndex = 1;
             this.nameLabel.Text = "Имя";
             // 
@@ -114,7 +114,7 @@
             this.patronymicLabel.Location = new System.Drawing.Point(16, 78);
             this.patronymicLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.patronymicLabel.Name = "patronymicLabel";
-            this.patronymicLabel.Size = new System.Drawing.Size(97, 23);
+            this.patronymicLabel.Size = new System.Drawing.Size(77, 18);
             this.patronymicLabel.TabIndex = 1;
             this.patronymicLabel.Text = "Отчество";
             // 
@@ -142,7 +142,7 @@
             this.textBox8.Location = new System.Drawing.Point(224, 76);
             this.textBox8.Margin = new System.Windows.Forms.Padding(4);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(99, 22);
+            this.textBox8.Size = new System.Drawing.Size(75, 20);
             this.textBox8.TabIndex = 6;
             // 
             // textBox7
@@ -150,7 +150,7 @@
             this.textBox7.Location = new System.Drawing.Point(224, 44);
             this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(99, 22);
+            this.textBox7.Size = new System.Drawing.Size(75, 20);
             this.textBox7.TabIndex = 6;
             // 
             // textBox6
@@ -158,7 +158,7 @@
             this.textBox6.Location = new System.Drawing.Point(104, 76);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(99, 22);
+            this.textBox6.Size = new System.Drawing.Size(75, 20);
             this.textBox6.TabIndex = 6;
             // 
             // textBox5
@@ -166,46 +166,42 @@
             this.textBox5.Location = new System.Drawing.Point(104, 44);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(99, 22);
+            this.textBox5.Size = new System.Drawing.Size(75, 20);
             this.textBox5.TabIndex = 6;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 80);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(14, 65);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 17);
+            this.label7.Size = new System.Drawing.Size(57, 13);
             this.label7.TabIndex = 5;
             this.label7.Text = "RUB/USB";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(220, 25);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(165, 20);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 17);
+            this.label9.Size = new System.Drawing.Size(53, 13);
             this.label9.TabIndex = 5;
             this.label9.Text = "Продажа";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(100, 25);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(75, 20);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 17);
+            this.label8.Size = new System.Drawing.Size(50, 13);
             this.label8.TabIndex = 5;
             this.label8.Text = "Покупка";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 48);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(14, 39);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 17);
+            this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "RUB/EUR";
             // 
@@ -247,12 +243,17 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.CreditDataGrid);
+            this.tabPage2.Controls.Add(this.textBox4);
+            this.tabPage2.Controls.Add(this.textBox3);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(713, 115);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Size = new System.Drawing.Size(347, 115);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Кредитный";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -277,6 +278,7 @@
             this.файлToolStripMenuItem,
             this.справочникToolStripMenuItem,
             this.информацияОБанкеToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.выходToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -291,13 +293,13 @@
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.редактироватьToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // редактироватьToolStripMenuItem
             // 
             this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
-            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
+            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.редактироватьToolStripMenuItem.Text = "Редактировать";
             // 
             // справочникToolStripMenuItem
@@ -305,13 +307,13 @@
             this.справочникToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.курсыВалютToolStripMenuItem});
             this.справочникToolStripMenuItem.Name = "справочникToolStripMenuItem";
-            this.справочникToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
+            this.справочникToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.справочникToolStripMenuItem.Text = "Справочник";
             // 
             // курсыВалютToolStripMenuItem
             // 
             this.курсыВалютToolStripMenuItem.Name = "курсыВалютToolStripMenuItem";
-            this.курсыВалютToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.курсыВалютToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.курсыВалютToolStripMenuItem.Text = "Курсы валют";
             this.курсыВалютToolStripMenuItem.Click += new System.EventHandler(this.курсыВалютToolStripMenuItem_Click);
             // 
@@ -325,7 +327,7 @@
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -335,9 +337,9 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(16, 100);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(152, 143);
+            this.pictureBox1.Size = new System.Drawing.Size(114, 116);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -347,7 +349,7 @@
             this.button1.Location = new System.Drawing.Point(497, 251);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 26);
+            this.button1.Size = new System.Drawing.Size(82, 21);
             this.button1.TabIndex = 2;
             this.button1.Text = "Платеж...";
             this.button1.UseVisualStyleBackColor = true;
@@ -359,10 +361,9 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label10.Location = new System.Drawing.Point(40, 417);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(30, 339);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(106, 19);
+            this.label10.Size = new System.Drawing.Size(83, 16);
             this.label10.TabIndex = 6;
             this.label10.Text = "Дата+Время";
             // 
@@ -375,10 +376,10 @@
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.BackgroundImage = global::Bank.Properties.Resources.w256h2561386955431setting2;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(7, 415);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Location = new System.Drawing.Point(5, 337);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(27, 25);
+            this.button2.Size = new System.Drawing.Size(20, 20);
             this.button2.TabIndex = 8;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -405,13 +406,20 @@
             this.label11.Location = new System.Drawing.Point(194, 78);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(141, 17);
+            this.label11.Size = new System.Drawing.Size(109, 13);
             this.label11.TabIndex = 10;
             this.label11.Text = "Последние платежи";
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(135, 20);
+            this.toolStripMenuItem1.Text = "Интерактивная карта";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
             // ClientForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 441);
             this.Controls.Add(this.label11);

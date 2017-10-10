@@ -82,9 +82,9 @@ namespace GUI
             new InfoAboutBank().Show();
         }
 
-        private void ClientForm_Load(object sender, EventArgs e)
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            new InteractiveMap().Show();
         }
 
         private void ClientForm_FormClosed(object sender, FormClosedEventArgs e)

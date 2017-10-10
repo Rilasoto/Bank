@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeClientInformtion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeClientInformtion.Designer.cs">
+      <DependentUpon>ChangeClientInformtion.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,12 @@
     </Compile>
     <Compile Include="InfoAboutBank.Designer.cs">
       <DependentUpon>InfoAboutBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InteractiveMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InteractiveMap.Designer.cs">
+      <DependentUpon>InteractiveMap.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -114,6 +126,9 @@
       <DependentUpon>TransactionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="ChangeClientInformtion.resx">
+      <DependentUpon>ChangeClientInformtion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InfoAboutBank.resx">
       <DependentUpon>InfoAboutBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InteractiveMap.resx">
+      <DependentUpon>InteractiveMap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -187,6 +205,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exclamation-mark-red-md.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Рисунок1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
