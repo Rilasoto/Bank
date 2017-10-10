@@ -33,5 +33,14 @@ namespace GUI
             EuroBuy.Text = eurodt.Rows[0][0].ToString();
             EuroSell.Text = eurodt.Rows[0][1].ToString();
         }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes == MessageBox.Show("Выйти?", "Выход", MessageBoxButtons.YesNo))
+            {
+               
+                LoginForm.GetInstance().Close();
+            }
+        }
     }
 }

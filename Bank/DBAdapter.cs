@@ -17,9 +17,9 @@ namespace DBAdapter
 
         public DB()
         {
-            //connection = new SqlConnection("Data Source=DESKTOP-V4KR3NR;Initial Catalog=ProjectBank;Integrated Security=True");//Ринат
+            connection = new SqlConnection("Data Source=DESKTOP-V4KR3NR;Initial Catalog=ProjectBank;Integrated Security=True");//Ринат
             //connection = new SqlConnection("Data Source=DESKTOP-4E4QD9H;Initial Catalog=ProjectBank;Integrated Security=True");//Егор
-            connection = new SqlConnection("Data Source=OVERLORD-2;Initial Catalog=ProjectBank;Integrated Security=True");//Михаил
+          //  connection = new SqlConnection("Data Source=OVERLORD-2;Initial Catalog=ProjectBank;Integrated Security=True");//Михаил
         }
 
         public static DB GetInstance()
@@ -107,14 +107,17 @@ namespace DBAdapter
 
         internal bool AddNewEmployee(string login, string password, string surname, string name, string patronymic, DateTime birth, string email, string passportID, string passportGivenBy, DateTime dateGiven, string regAddress)
         {
-            if (AddEntry(new string[] { surname, name, patronymic, birth.ToString("yyyy-MM-dd"), email, passportID, passportGivenBy, dateGiven.ToString("yyyy-MM-dd"), regAddress, "3" }, "Employees")) //3 это ID должности,в данном случае клиент
-            {
-                int newClientID = (int)RunSelect("select max(ID_Employee) from Employees").Rows[0][0];
-                AddEntry(new string[] { newClientID.ToString(), login, password }, "Autorization");
-                return true;
-            }
-            else
-                return false;
+            DB.GetInstance().RunInsert(@" Insert into Employees(Surname,Name,Patronymic,Birth_Date,Email,Passport_Seria,Passport_Givenby,Passport_Givenwhen,Passport_RegistrationAddress,Position_ID)
+                                          values('"+surname+ "','" + name + "','" + patronymic + "','" + birth.ToString() + "','" + email + "','" + passportID + "','" + passportGivenBy + "','" + dateGiven + "','" + regAddress + "',3)");
+            return true;
+            //if (AddEntry(new string[] { surname, name, patronymic, birth.ToString("yyyy-MM-dd"), email, passportID, passportGivenBy, dateGiven.ToString("yyyy-MM-dd"), regAddress, "3" }, "Employees")) //3 это ID должности,в данном случае клиент
+            //{
+            //    int newClientID = (int)RunSelect("select max(ID_Employee) from Employees").Rows[0][0];
+            //    AddEntry(new string[] { newClientID.ToString(), login, password }, "Autorization");
+            //    return true;
+            //}
+            //else
+            //    return false;
         }
 
         internal bool CheckIfLoginExists(string login)// "ПроверитьСуществуетЛиТакойЛогин true-существует/

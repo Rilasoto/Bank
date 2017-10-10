@@ -26,5 +26,13 @@ namespace GUI
         {
 
         }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes == MessageBox.Show("Выйти?", "Выход", MessageBoxButtons.YesNo))
+            {
+                LoginForm.GetInstance().Close();
+            }
+        }
     }
 }
