@@ -87,6 +87,25 @@ namespace GUI
             new InteractiveMap().Show();
         }
 
+        private void ClientForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeClientInformtion redact = new ChangeClientInformtion(user);
+            redact.Owner = this;
+            redact.Show();
+        }
+
+        private void интерактивнаяКартаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InteractiveMap NBewww = new InteractiveMap();
+            NBewww.Owner = this;
+            NBewww.Show();
+        }
+
         private void ClientForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             LoginForm.GetInstance().Show();

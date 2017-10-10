@@ -38,14 +38,14 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.addButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.accountsComboBox = new System.Windows.Forms.ComboBox();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.dateCredit = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.creditlastsumm = new System.Windows.Forms.TextBox();
             this.creditsComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.creditlastsumm = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dateCredit = new System.Windows.Forms.DateTimePicker();
+            this.accountsComboBox = new System.Windows.Forms.ComboBox();
+            this.cancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -76,7 +76,7 @@
             this.servicesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.servicesComboBox.FormattingEnabled = true;
             this.servicesComboBox.Location = new System.Drawing.Point(12, 39);
-            this.servicesComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.servicesComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.servicesComboBox.Name = "servicesComboBox";
             this.servicesComboBox.Size = new System.Drawing.Size(224, 24);
             this.servicesComboBox.TabIndex = 2;
@@ -105,7 +105,7 @@
             // sumTextBox
             // 
             this.sumTextBox.Location = new System.Drawing.Point(12, 137);
-            this.sumTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sumTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.sumTextBox.Name = "sumTextBox";
             this.sumTextBox.Size = new System.Drawing.Size(224, 22);
             this.sumTextBox.TabIndex = 3;
@@ -113,7 +113,7 @@
             // payButton
             // 
             this.payButton.Location = new System.Drawing.Point(29, 169);
-            this.payButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.payButton.Margin = new System.Windows.Forms.Padding(4);
             this.payButton.Name = "payButton";
             this.payButton.Size = new System.Drawing.Size(100, 28);
             this.payButton.TabIndex = 4;
@@ -127,7 +127,7 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(16, 46);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -139,7 +139,7 @@
             // addButton
             // 
             this.addButton.Location = new System.Drawing.Point(489, 46);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(100, 28);
             this.addButton.TabIndex = 4;
@@ -164,35 +164,53 @@
             this.groupBox1.Controls.Add(this.sumTextBox);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(16, 46);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(454, 209);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(253, 209);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Оплата";
             this.groupBox1.Visible = false;
             // 
-            // accountsComboBox
+            // dateCredit
             // 
-            this.accountsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.accountsComboBox.FormattingEnabled = true;
-            this.accountsComboBox.Location = new System.Drawing.Point(12, 89);
-            this.accountsComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.accountsComboBox.Name = "accountsComboBox";
-            this.accountsComboBox.Size = new System.Drawing.Size(224, 24);
-            this.accountsComboBox.TabIndex = 5;
+            this.dateCredit.CustomFormat = "yyyy-MM-dd";
+            this.dateCredit.Enabled = false;
+            this.dateCredit.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateCredit.Location = new System.Drawing.Point(265, 89);
+            this.dateCredit.Name = "dateCredit";
+            this.dateCredit.Size = new System.Drawing.Size(166, 22);
+            this.dateCredit.TabIndex = 12;
             // 
-            // cancelButton
+            // label7
             // 
-            this.cancelButton.Location = new System.Drawing.Point(137, 169);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(100, 28);
-            this.cancelButton.TabIndex = 4;
-            this.cancelButton.Text = "Отмена";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(261, 115);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(122, 34);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Оставшаяся для \r\nуплаты сумма";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(261, 69);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(100, 17);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Дата кредита";
+            // 
+            // creditlastsumm
+            // 
+            this.creditlastsumm.Enabled = false;
+            this.creditlastsumm.Location = new System.Drawing.Point(263, 153);
+            this.creditlastsumm.Margin = new System.Windows.Forms.Padding(4);
+            this.creditlastsumm.Name = "creditlastsumm";
+            this.creditlastsumm.Size = new System.Drawing.Size(168, 22);
+            this.creditlastsumm.TabIndex = 9;
             // 
             // creditsComboBox
             // 
@@ -215,44 +233,26 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Номер кредита";
             // 
-            // creditlastsumm
+            // accountsComboBox
             // 
-            this.creditlastsumm.Enabled = false;
-            this.creditlastsumm.Location = new System.Drawing.Point(263, 153);
-            this.creditlastsumm.Margin = new System.Windows.Forms.Padding(4);
-            this.creditlastsumm.Name = "creditlastsumm";
-            this.creditlastsumm.Size = new System.Drawing.Size(168, 22);
-            this.creditlastsumm.TabIndex = 9;
+            this.accountsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.accountsComboBox.FormattingEnabled = true;
+            this.accountsComboBox.Location = new System.Drawing.Point(12, 89);
+            this.accountsComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.accountsComboBox.Name = "accountsComboBox";
+            this.accountsComboBox.Size = new System.Drawing.Size(224, 24);
+            this.accountsComboBox.TabIndex = 5;
             // 
-            // label6
+            // cancelButton
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(261, 69);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 17);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Дата кредита";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(261, 115);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(122, 34);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Оставшаяся для \r\nуплаты сумма";
-            // 
-            // dateCredit
-            // 
-            this.dateCredit.CustomFormat = "yyyy-MM-dd";
-            this.dateCredit.Enabled = false;
-            this.dateCredit.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateCredit.Location = new System.Drawing.Point(265, 89);
-            this.dateCredit.Name = "dateCredit";
-            this.dateCredit.Size = new System.Drawing.Size(166, 22);
-            this.dateCredit.TabIndex = 12;
+            this.cancelButton.Location = new System.Drawing.Point(137, 169);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(100, 28);
+            this.cancelButton.TabIndex = 4;
+            this.cancelButton.Text = "Отмена";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // TransactionForm
             // 
@@ -263,7 +263,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(614, 310);
             this.Name = "TransactionForm";
             this.Text = "TransactionForm";

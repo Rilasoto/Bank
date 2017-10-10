@@ -40,9 +40,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(16, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 25);
+            this.label1.Size = new System.Drawing.Size(123, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Клиенты";
             // 
@@ -54,21 +55,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 37);
+            this.dataGridView1.Location = new System.Drawing.Point(23, 46);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(460, 212);
+            this.dataGridView1.Size = new System.Drawing.Size(613, 261);
             this.dataGridView1.TabIndex = 1;
             // 
             // addButton
             // 
             this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addButton.Location = new System.Drawing.Point(483, 37);
+            this.addButton.Location = new System.Drawing.Point(644, 46);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(104, 23);
+            this.addButton.Size = new System.Drawing.Size(139, 28);
             this.addButton.TabIndex = 2;
             this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = true;
@@ -77,9 +80,10 @@
             // editButton
             // 
             this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editButton.Location = new System.Drawing.Point(483, 66);
+            this.editButton.Location = new System.Drawing.Point(644, 81);
+            this.editButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(104, 23);
+            this.editButton.Size = new System.Drawing.Size(139, 28);
             this.editButton.TabIndex = 2;
             this.editButton.Text = "Редактировать";
             this.editButton.UseVisualStyleBackColor = true;
@@ -88,24 +92,26 @@
             // deleteButton
             // 
             this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteButton.Location = new System.Drawing.Point(483, 124);
+            this.deleteButton.Location = new System.Drawing.Point(644, 153);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(104, 23);
+            this.deleteButton.Size = new System.Drawing.Size(139, 28);
             this.deleteButton.TabIndex = 2;
             this.deleteButton.Text = "Удалить";
             this.deleteButton.UseVisualStyleBackColor = true;
             // 
             // ClientsCatalog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 261);
+            this.ClientSize = new System.Drawing.Size(792, 321);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
-            this.MinimumSize = new System.Drawing.Size(610, 300);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(807, 358);
             this.Name = "ClientsCatalog";
             this.Text = "ClientsCatalog";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
