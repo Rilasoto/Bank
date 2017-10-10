@@ -20,6 +20,8 @@ namespace GUI
         double second = 0.0;
         bool typedate = false;
         DB db;
+        bool isEditMode = false;
+        int userID;
 
         public RegForm()
         {
@@ -31,6 +33,36 @@ namespace GUI
             db = DB.GetInstance();
         }
 
+
+        public int UserID
+        {
+            get { return this.userID; }
+            set { this.userID = value; }
+        }
+        public bool IsEditMode
+        {
+            set { isEditMode = value; }
+            get { return isEditMode; }
+        }
+
+        public void FillFieldsWithData(DataGridViewRow dr)
+        {
+            DataGridViewCellCollection cells = dr.Cells;
+
+            loginBox.Text = cells["Login"].Value.ToString();
+            passwordBox.Text = cells["Password"].Value.ToString();
+            surnameBox.Text = cells["Surname"].Value.ToString();
+            emailBox.Text = cells["Email"].Value.ToString();
+            nameBox.Text = cells["Name"].Value.ToString();
+            patronymicBox.Text = cells["Patronymic"].Value.ToString();
+            dateBirth.Value = (DateTime)cells["Birth_Date"].Value;
+            passportID.Text = cells["Passport_Seria"].Value.ToString();
+            givenByRichText.Text = cells["Passport_GivenBy"].Value.ToString();
+            dateGiven.Value = (DateTime)cells["Passport_GivenWhen"].Value;
+            regAddressText.Text = cells["Passport_RegistrationAddress"].Value.ToString();
+        }
+
+
         private void buttonSettings_Click(object sender, EventArgs e)
         {
             typedate = !typedate;
@@ -38,29 +70,64 @@ namespace GUI
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
-            if (surnameBox.Text == "" || nameBox.Text == "" || patronymicBox.Text == "" || emailBox.Text == "" || passportBox.Text == "" || errorPassPic.Visible == true || loginErrorPic.Visible == true || erroremail.Visible == true)
+            if (isEditMode)//если включен режим редактирования
             {
-                MessageBox.Show("Не все данные заполнены верно!", "Ошибка");
-            }
-            else
-            {
-                if (db.AddNewEmployee(loginBox.Text, passwordBox.Text, surnameBox.Text, nameBox.Text, patronymicBox.Text, dateBirth.Value, emailBox.Text, passportBox.Text, richGivenBy.Text, dateGiven.Value, textRegAddress.Text))
+                if (surnameBox.Text == "" || nameBox.Text == "" || patronymicBox.Text == "" || emailBox.Text == "" || passportID.Text == "" || erroremail.Visible == true)
                 {
-                    MessageBox.Show("Регистрация прошла успешно");
-                    this.Close();
-                    if (Owner is ClientsCatalog)
+                    MessageBox.Show("Некоторые поля заполнены неверно!");
+                }
+                else
+                {
+                    bool updateSucces = db.RunInsert("update Employees set Surname='" + surnameBox.Text +
+                         "', Name='" + nameBox.Text +
+                         "', Patronymic='" + patronymicBox.Text +
+                         "', Email='" + emailBox.Text +
+                         "', Passport_Seria='" + passportID.Text +
+                         "', Passport_GivenBy='" + givenByRichText.Text +
+                         "', Passport_GivenWhen='" + dateGiven.Value.ToString("yyyy-MM-dd") +
+                         "', Passport_RegistrationAddress='" + regAddressText.Text +
+                         "' where ID_Employee = " + userID);
+                    if (updateSucces)
                     {
-                        (Owner as ClientsCatalog).InitializeDatagrid();
-                        (Owner as ClientsCatalog).SelectLastRow();
+                        if (Owner is ClientsCatalog) //если была открыта из справочника
+                        {
+                            (Owner as ClientsCatalog).UpdateTable();
+                            (Owner as ClientsCatalog).SelectRowWithID(userID);
+                        }
+                        this.Close();
                     }
                     else
                     {
-                        LoginForm.GetInstance().Show();
+                        MessageBox.Show("Ошибка записи");
                     }
                 }
-
+            }
+            else
+            {
+                if (surnameBox.Text == "" || nameBox.Text == "" || patronymicBox.Text == "" || emailBox.Text == "" || passportID.Text == "" || errorPassPic.Visible == true || loginErrorPic.Visible == true || erroremail.Visible == true)
+                {
+                    MessageBox.Show("Не все данные заполнены верно!", "Ошибка");
+                }
                 else
-                    MessageBox.Show("Ошибка");
+                {
+                    //if(db.RunInsert())
+                    if (db.AddNewEmployee(loginBox.Text, passwordBox.Text, surnameBox.Text, nameBox.Text, patronymicBox.Text, dateBirth.Value, emailBox.Text, passportID.Text, givenByRichText.Text, dateGiven.Value, regAddressText.Text))
+                    {
+                        MessageBox.Show("Регистрация прошла успешно");
+                        this.Close();
+                        if (Owner is ClientsCatalog)
+                        {
+                            (Owner as ClientsCatalog).InitializeDatagrid();
+                            (Owner as ClientsCatalog).SelectLastRow();
+                        }
+                        else
+                        {
+                            LoginForm.GetInstance().Show();
+                        }
+                    }
+                    else
+                        MessageBox.Show("Ошибка");
+                }
             }
         }
 
@@ -91,18 +158,18 @@ namespace GUI
 
         private void RegForm_Load(object sender, EventArgs e)
         {
-
-
+            if (this.isEditMode)
+            {
+                loginBox.Enabled = false;
+                passwordBox.Enabled = false;
+                password2Box.Enabled = false;
+            }
         }
 
         private void loginBox_TextChanged(object sender, EventArgs e)
         {
-            timer2.Start();
-        }
-
-        private void RegForm_Load_1(object sender, EventArgs e)
-        {
-
+            if (!isEditMode)
+                timer2.Start();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -112,11 +179,10 @@ namespace GUI
 
         private void RegForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (this.Owner != null)
-                if (Owner is ClientsCatalog)
-                    (Owner as ClientsCatalog).EnterViewMode();
-                else
-                    LoginForm.GetInstance().Show();
+            if (Owner is ClientsCatalog)
+                (Owner as ClientsCatalog).Enabled = true;
+            else
+                Owner.Show();
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -130,7 +196,6 @@ namespace GUI
                 timer2.Stop();
 
             }
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -47,7 +47,7 @@ namespace GUI
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             LoginForm.GetInstance().Hide();
-            new RegForm().Show();
+            new RegForm().Show(this);
         }
 
         private void button1_Click(object sender, EventArgs e)

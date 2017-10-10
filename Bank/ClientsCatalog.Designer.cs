@@ -83,6 +83,7 @@
             this.editButton.TabIndex = 2;
             this.editButton.Text = "Редактировать";
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // deleteButton
             // 
@@ -104,6 +105,7 @@
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
+            this.MinimumSize = new System.Drawing.Size(610, 300);
             this.Name = "ClientsCatalog";
             this.Text = "ClientsCatalog";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

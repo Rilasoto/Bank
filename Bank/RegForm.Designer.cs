@@ -41,7 +41,7 @@
             this.emailBox = new System.Windows.Forms.TextBox();
             this.dateBirth = new System.Windows.Forms.DateTimePicker();
             this.buttonSubmit = new System.Windows.Forms.Button();
-            this.passportBox = new System.Windows.Forms.MaskedTextBox();
+            this.passportID = new System.Windows.Forms.MaskedTextBox();
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -58,13 +58,13 @@
             this.loginErrorPic = new System.Windows.Forms.PictureBox();
             this.errorPassPic = new System.Windows.Forms.PictureBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.richGivenBy = new System.Windows.Forms.RichTextBox();
+            this.givenByRichText = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dateGiven = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textRegAddress = new System.Windows.Forms.TextBox();
+            this.regAddressText = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.erroremail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginErrorPic)).BeginInit();
@@ -173,24 +173,24 @@
             // buttonSubmit
             // 
             this.buttonSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSubmit.Location = new System.Drawing.Point(486, 244);
+            this.buttonSubmit.Location = new System.Drawing.Point(572, 244);
             this.buttonSubmit.Name = "buttonSubmit";
-            this.buttonSubmit.Size = new System.Drawing.Size(169, 22);
+            this.buttonSubmit.Size = new System.Drawing.Size(83, 22);
             this.buttonSubmit.TabIndex = 10;
-            this.buttonSubmit.Text = "Зарегистрироваться";
+            this.buttonSubmit.Text = "ОК";
             this.toolTip1.SetToolTip(this.buttonSubmit, "Тыкни сюда");
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
-            // passportBox
+            // passportID
             // 
-            this.passportBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.passportBox.Location = new System.Drawing.Point(98, 76);
-            this.passportBox.Mask = "0000-000000";
-            this.passportBox.Name = "passportBox";
-            this.passportBox.Size = new System.Drawing.Size(80, 20);
-            this.passportBox.TabIndex = 9;
-            this.passportBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.passportID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passportID.Location = new System.Drawing.Point(98, 76);
+            this.passportID.Mask = "0000-000000";
+            this.passportID.Name = "passportID";
+            this.passportID.Size = new System.Drawing.Size(80, 20);
+            this.passportID.TabIndex = 9;
+            this.passportID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelTitle
             // 
@@ -347,13 +347,13 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // richGivenBy
+            // givenByRichText
             // 
-            this.richGivenBy.Location = new System.Drawing.Point(184, 76);
-            this.richGivenBy.Name = "richGivenBy";
-            this.richGivenBy.Size = new System.Drawing.Size(344, 50);
-            this.richGivenBy.TabIndex = 11;
-            this.richGivenBy.Text = "";
+            this.givenByRichText.Location = new System.Drawing.Point(184, 76);
+            this.givenByRichText.Name = "givenByRichText";
+            this.givenByRichText.Size = new System.Drawing.Size(344, 50);
+            this.givenByRichText.TabIndex = 11;
+            this.givenByRichText.Text = "";
             // 
             // label1
             // 
@@ -397,10 +397,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textRegAddress);
+            this.groupBox1.Controls.Add(this.regAddressText);
             this.groupBox1.Controls.Add(this.surnameBox);
             this.groupBox1.Controls.Add(this.labelSurname);
-            this.groupBox1.Controls.Add(this.richGivenBy);
+            this.groupBox1.Controls.Add(this.givenByRichText);
             this.groupBox1.Controls.Add(this.labelName);
             this.groupBox1.Controls.Add(this.nameBox);
             this.groupBox1.Controls.Add(this.label1);
@@ -408,7 +408,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.labelPatronymic);
             this.groupBox1.Controls.Add(this.patronymicBox);
-            this.groupBox1.Controls.Add(this.passportBox);
+            this.groupBox1.Controls.Add(this.passportID);
             this.groupBox1.Controls.Add(this.labelBirthDay);
             this.groupBox1.Controls.Add(this.labelPassport);
             this.groupBox1.Controls.Add(this.dateGiven);
@@ -420,12 +420,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Паспортные данные";
             // 
-            // textRegAddress
+            // regAddressText
             // 
-            this.textRegAddress.Location = new System.Drawing.Point(273, 150);
-            this.textRegAddress.Name = "textRegAddress";
-            this.textRegAddress.Size = new System.Drawing.Size(255, 20);
-            this.textRegAddress.TabIndex = 12;
+            this.regAddressText.Location = new System.Drawing.Point(273, 150);
+            this.regAddressText.Name = "regAddressText";
+            this.regAddressText.Size = new System.Drawing.Size(255, 20);
+            this.regAddressText.TabIndex = 12;
             // 
             // cancelButton
             // 
@@ -465,7 +465,7 @@
             this.Name = "RegForm";
             this.Text = "OurBank";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegForm_FormClosed);
-            this.Load += new System.EventHandler(this.RegForm_Load_1);
+            this.Load += new System.EventHandler(this.RegForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.erroremail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginErrorPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorPassPic)).EndInit();
@@ -488,7 +488,7 @@
         private System.Windows.Forms.TextBox emailBox;
         private System.Windows.Forms.DateTimePicker dateBirth;
         private System.Windows.Forms.Button buttonSubmit;
-        private System.Windows.Forms.MaskedTextBox passportBox;
+        private System.Windows.Forms.MaskedTextBox passportID;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Timer timer1;
@@ -505,13 +505,13 @@
         private System.Windows.Forms.PictureBox loginErrorPic;
         private System.Windows.Forms.PictureBox errorPassPic;
         private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.RichTextBox richGivenBy;
+        private System.Windows.Forms.RichTextBox givenByRichText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateGiven;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textRegAddress;
+        private System.Windows.Forms.TextBox regAddressText;
         private System.Windows.Forms.Button cancelButton;
     }
 }
