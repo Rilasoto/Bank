@@ -152,7 +152,7 @@ namespace GUI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonEmaaail_Click(object sender, EventArgs e)
         {
             new EmailList().Show(this);
         }

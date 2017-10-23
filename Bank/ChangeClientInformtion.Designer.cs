@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangeClientInformtion));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textRegAddress = new System.Windows.Forms.TextBox();
             this.surnameBox = new System.Windows.Forms.TextBox();
@@ -66,11 +67,14 @@
             this.loginErrorPic = new System.Windows.Forms.PictureBox();
             this.erroremail = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ButtonImageChange = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorPassPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginErrorPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erroremail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -91,7 +95,7 @@
             this.groupBox1.Controls.Add(this.labelPassport);
             this.groupBox1.Controls.Add(this.dateGiven);
             this.groupBox1.Controls.Add(this.dateBirth);
-            this.groupBox1.Location = new System.Drawing.Point(295, 60);
+            this.groupBox1.Location = new System.Drawing.Point(459, 64);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -274,7 +278,7 @@
             this.labelTime.AutoSize = true;
             this.labelTime.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelTime.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelTime.Location = new System.Drawing.Point(60, 368);
+            this.labelTime.Location = new System.Drawing.Point(60, 308);
             this.labelTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(0, 19);
@@ -287,7 +291,7 @@
             // emailBox
             // 
             this.emailBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.emailBox.Location = new System.Drawing.Point(27, 224);
+            this.emailBox.Location = new System.Drawing.Point(191, 228);
             this.emailBox.Margin = new System.Windows.Forms.Padding(4);
             this.emailBox.Name = "emailBox";
             this.emailBox.Size = new System.Drawing.Size(224, 23);
@@ -299,7 +303,7 @@
             // buttonSubmit
             // 
             this.buttonSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSubmit.Location = new System.Drawing.Point(659, 300);
+            this.buttonSubmit.Location = new System.Drawing.Point(823, 304);
             this.buttonSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSubmit.Name = "buttonSubmit";
             this.buttonSubmit.Size = new System.Drawing.Size(225, 27);
@@ -324,7 +328,7 @@
             // password2Box
             // 
             this.password2Box.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.password2Box.Location = new System.Drawing.Point(27, 176);
+            this.password2Box.Location = new System.Drawing.Point(191, 180);
             this.password2Box.Margin = new System.Windows.Forms.Padding(4);
             this.password2Box.Name = "password2Box";
             this.password2Box.PasswordChar = '*';
@@ -335,7 +339,7 @@
             // passwordBox
             // 
             this.passwordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.passwordBox.Location = new System.Drawing.Point(27, 128);
+            this.passwordBox.Location = new System.Drawing.Point(191, 132);
             this.passwordBox.Margin = new System.Windows.Forms.Padding(4);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.PasswordChar = '*';
@@ -347,7 +351,7 @@
             // 
             this.labelRepeat.AutoSize = true;
             this.labelRepeat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelRepeat.Location = new System.Drawing.Point(23, 156);
+            this.labelRepeat.Location = new System.Drawing.Point(187, 160);
             this.labelRepeat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRepeat.Name = "labelRepeat";
             this.labelRepeat.Size = new System.Drawing.Size(130, 17);
@@ -358,7 +362,7 @@
             // 
             this.labelPassword.AutoSize = true;
             this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPassword.Location = new System.Drawing.Point(23, 108);
+            this.labelPassword.Location = new System.Drawing.Point(187, 112);
             this.labelPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(57, 17);
@@ -369,7 +373,7 @@
             // 
             this.labelEmail.AutoSize = true;
             this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelEmail.Location = new System.Drawing.Point(23, 204);
+            this.labelEmail.Location = new System.Drawing.Point(187, 208);
             this.labelEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(46, 17);
@@ -379,7 +383,7 @@
             // cancelButton
             // 
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cancelButton.Location = new System.Drawing.Point(892, 300);
+            this.cancelButton.Location = new System.Drawing.Point(1056, 304);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(115, 27);
@@ -392,7 +396,7 @@
             // 
             this.loginBox.Enabled = false;
             this.loginBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginBox.Location = new System.Drawing.Point(27, 80);
+            this.loginBox.Location = new System.Drawing.Point(191, 84);
             this.loginBox.Margin = new System.Windows.Forms.Padding(4);
             this.loginBox.Name = "loginBox";
             this.loginBox.Size = new System.Drawing.Size(224, 23);
@@ -403,7 +407,7 @@
             // 
             this.loginLabel.AutoSize = true;
             this.loginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginLabel.Location = new System.Drawing.Point(23, 60);
+            this.loginLabel.Location = new System.Drawing.Point(187, 64);
             this.loginLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(47, 17);
@@ -418,7 +422,7 @@
             this.buttonSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonSettings.FlatAppearance.BorderSize = 0;
             this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSettings.Location = new System.Drawing.Point(26, 366);
+            this.buttonSettings.Location = new System.Drawing.Point(26, 306);
             this.buttonSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(27, 25);
@@ -431,7 +435,7 @@
             // 
             this.errorPassPic.Cursor = System.Windows.Forms.Cursors.Default;
             this.errorPassPic.Image = global::Bank.Properties.Resources.exclamation_mark_red_md;
-            this.errorPassPic.Location = new System.Drawing.Point(259, 178);
+            this.errorPassPic.Location = new System.Drawing.Point(423, 182);
             this.errorPassPic.Margin = new System.Windows.Forms.Padding(4);
             this.errorPassPic.Name = "errorPassPic";
             this.errorPassPic.Size = new System.Drawing.Size(27, 21);
@@ -444,7 +448,7 @@
             // 
             this.loginErrorPic.Cursor = System.Windows.Forms.Cursors.Default;
             this.loginErrorPic.Image = global::Bank.Properties.Resources.exclamation_mark_red_md;
-            this.loginErrorPic.Location = new System.Drawing.Point(260, 80);
+            this.loginErrorPic.Location = new System.Drawing.Point(424, 84);
             this.loginErrorPic.Margin = new System.Windows.Forms.Padding(4);
             this.loginErrorPic.Name = "loginErrorPic";
             this.loginErrorPic.Size = new System.Drawing.Size(27, 21);
@@ -457,7 +461,7 @@
             // 
             this.erroremail.Cursor = System.Windows.Forms.Cursors.Default;
             this.erroremail.Image = global::Bank.Properties.Resources.exclamation_mark_red_md;
-            this.erroremail.Location = new System.Drawing.Point(260, 225);
+            this.erroremail.Location = new System.Drawing.Point(424, 229);
             this.erroremail.Margin = new System.Windows.Forms.Padding(4);
             this.erroremail.Name = "erroremail";
             this.erroremail.Size = new System.Drawing.Size(27, 22);
@@ -470,7 +474,7 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox1.Image = global::Bank.Properties.Resources.exclamation_mark_red_md;
-            this.pictureBox1.Location = new System.Drawing.Point(260, 128);
+            this.pictureBox1.Location = new System.Drawing.Point(424, 132);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(27, 21);
@@ -479,11 +483,39 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = null;
+            this.pictureBox2.Location = new System.Drawing.Point(26, 78);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(152, 143);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 31;
+            this.pictureBox2.TabStop = false;
+            // 
+            // ButtonImageChange
+            // 
+            this.ButtonImageChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonImageChange.Location = new System.Drawing.Point(49, 230);
+            this.ButtonImageChange.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonImageChange.Name = "ButtonImageChange";
+            this.ButtonImageChange.Size = new System.Drawing.Size(111, 27);
+            this.ButtonImageChange.TabIndex = 32;
+            this.ButtonImageChange.Text = "Обзор...";
+            this.toolTip1.SetToolTip(this.ButtonImageChange, "Тыкни сюда");
+            this.ButtonImageChange.UseVisualStyleBackColor = true;
+            this.ButtonImageChange.Click += new System.EventHandler(this.ButtonImageChange_Click);
+            // 
             // ChangeClientInformtion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1072, 402);
+            this.ClientSize = new System.Drawing.Size(1183, 342);
+            this.Controls.Add(this.ButtonImageChange);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSettings);
@@ -512,6 +544,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.loginErrorPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erroremail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -544,7 +577,7 @@
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TextBox emailBox;
-        private System.Windows.Forms.Button buttonSubmit;
+        public System.Windows.Forms.Button buttonSubmit;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.TextBox password2Box;
         private System.Windows.Forms.TextBox passwordBox;
@@ -556,5 +589,7 @@
         private System.Windows.Forms.TextBox loginBox;
         private System.Windows.Forms.Label loginLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button ButtonImageChange;
     }
 }

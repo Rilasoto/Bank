@@ -38,6 +38,25 @@ namespace DBAdapter
             return dt;
         }
 
+        public byte[] RunSelectForImage(string zapros)
+        {
+            connection.Open();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(zapros, connection);
+            SqlCommand command = new SqlCommand(zapros, connection);
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Read();
+        
+            if (reader.HasRows)
+            {
+                byte[] img = (byte[])(reader[1]);
+                connection.Close();
+                return img;
+            }
+            connection.Close();
+            return null;
+        }
+
+
         public bool RunInsert(string command)
         {
 

@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using Logics;
-using System.Text.RegularExpressions;
+using System.IO;
 using DBAdapter;
+using System.Data.SqlClient;
 
 namespace GUI
 {
@@ -22,6 +23,9 @@ namespace GUI
         DB db;
         bool isEditMode = false;
         int userID;
+        string imgLoc = "";
+        SqlCommand cmd;
+     SqlConnection   connection = new SqlConnection("Data Source=DESKTOP-V4KR3NR;Initial Catalog=ProjectBank;Integrated Security=True");//Ринат
 
         public RegForm()
         {
@@ -128,6 +132,39 @@ namespace GUI
                     else
                         MessageBox.Show("Ошибка");
                 }
+
+            }
+            try
+            {
+                byte[] img = null;
+                FileStream fs = new FileStream(imgLoc, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fs);
+                img = br.ReadBytes((int)fs.Length);
+                DataTable dt = db.RunSelect("Select * From Image where ID_employee = '"+ UserID+"' ");
+                if (dt.Rows.Count > 0)
+                {
+                    connection.Open();
+                    string sqlQuery = "update Image set Image = @images where ID_employee = '"+UserID+"'  ";
+                    cmd = new SqlCommand(sqlQuery, connection);
+                    cmd.Parameters.Add(new SqlParameter("@images", img));
+                    int N = cmd.ExecuteNonQuery();
+                    connection.Close();
+                    MessageBox.Show(N.ToString() + " Фотография изменена");
+                }
+                else
+                {
+                    connection.Open();
+                    string sqlQuery = "insert into Image values('" + UserID + "', @images)";
+                    cmd = new SqlCommand(sqlQuery, connection);
+                    cmd.Parameters.Add(new SqlParameter("@images",img));
+                    int N = cmd.ExecuteNonQuery();
+                    MessageBox.Show(N.ToString() +" Фотография добавлена");
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -163,8 +200,20 @@ namespace GUI
                 loginBox.Enabled = false;
                 passwordBox.Enabled = false;
                 password2Box.Enabled = false;
-            }
+                string sql = "Select * From Image Where ID_employee = '" + UserID + "'";
+                //     DataTable dt = db.RunSelect("Select * From Image Where ID_employee = '"+UserID+"'");
+               byte[] img =  db.RunSelectForImage(sql);
+
+                    if (img != null)
+                    {
+                        MemoryStream ms = new MemoryStream(img);
+                    if(ms !=null)
+                        pictureBox1.Image = Image.FromStream(ms);
+                    }
+
+                }
         }
+        
 
         private void loginBox_TextChanged(object sender, EventArgs e)
         {
@@ -183,6 +232,23 @@ namespace GUI
                 (Owner as ClientsCatalog).Enabled = true;
             else
                 Owner.Show();
+        }
+
+        private void ButtonImageChange_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog dlg = new OpenFileDialog();
+                dlg.Filter = "JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif|All Files (*.*)|*.*";
+                dlg.Title = "Выберите фотографию для клиента";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    imgLoc = dlg.FileName.ToString();
+                    pictureBox1.ImageLocation = imgLoc;
+                }
+            }
+            catch 
+            { }
         }
 
         private void timer2_Tick(object sender, EventArgs e)

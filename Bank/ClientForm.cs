@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logics;
 using DBAdapter;
+using System.IO;
 
 namespace GUI
 {
@@ -26,8 +27,9 @@ namespace GUI
             surnameLabel.Text = user.Surname;
             nameLabel.Text = user.Name;
             patronymicLabel.Text = user.Patronymic;
-            LoadLastTransactions();
-           
+            LoadImage();
+
+
             timer1.Start();
         }
 
@@ -44,6 +46,21 @@ namespace GUI
                                                                     From Accounts where Employee_ID ='" + this.user.Id + "' ");
             CreditDataGrid.DataSource = DB.GetInstance().RunSelect(@"Select StartDate as [Дата кредитования],TotalSumm as [Задолжность], MonthlySumm as [Месячный платеж]
                                                                     From Credits where Employee_ID ='" + this.user.Id + "' ");
+        }
+        public void LoadImage()
+        {
+
+            string sql = "Select * From Image Where ID_employee = '" + this.user.Id + "'";
+            //     DataTable dt = db.RunSelect("Select * From Image Where ID_employee = '"+UserID+"'");
+            byte[] img = DB.GetInstance().RunSelectForImage(sql);
+
+            if (img != null)
+            {
+                MemoryStream ms = new MemoryStream(img);
+                if (ms != null)
+                    pictureBox1.Image = Image.FromStream(ms);
+            }
+
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -96,6 +113,7 @@ namespace GUI
         {
             ChangeClientInformtion redact = new ChangeClientInformtion(user);
             redact.Owner = this;
+            redact.buttonSubmit.Text = "Изменить";
             redact.Show();
         }
 

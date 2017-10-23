@@ -10,7 +10,8 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using Logics;
 using DBAdapter;
-using System.Text.RegularExpressions;
+using System.IO;
+using System.Data.SqlClient;
 
 namespace GUI
 {
@@ -21,6 +22,11 @@ namespace GUI
         double second = 0.0;
         bool typedate = false;
         DB db;
+        string imgLoc = "";
+        SqlCommand cmd;
+        SqlConnection connection = new SqlConnection("Data Source=DESKTOP-V4KR3NR;Initial Catalog=ProjectBank;Integrated Security=True");//Ринат
+
+
         public ChangeClientInformtion(User user)
         {
             InitializeComponent();
@@ -29,6 +35,17 @@ namespace GUI
             timer1.Start();
             timer2.Interval = 2000;
             db = DB.GetInstance();
+
+            string sql = "Select * From Image Where ID_employee = '" + user.Id + "'";
+            byte[] img = db.RunSelectForImage(sql);
+
+            if (img != null)
+            {
+                MemoryStream ms = new MemoryStream(img);
+                if (ms != null)
+                    pictureBox2.Image = Image.FromStream(ms);
+            }
+
         }
 
         private void ChangeClientInformtion_Load(object sender, EventArgs e)
@@ -46,6 +63,9 @@ namespace GUI
             richGivenBy.Text = userr.Rows[0][7].ToString();
             dateGiven.Value = (DateTime)userr.Rows[0][8];
             textRegAddress.Text = userr.Rows[0][9].ToString();
+
+           
+
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
@@ -68,27 +88,48 @@ namespace GUI
                                           Passport_Givenwhen = '" + dateGiven.Text + @"',
                                           Passport_RegistrationAddress = '" + textRegAddress.Text + @"'
                                           where ID_Employee = '"+ user.Id+"'");
-                cancelButton_Click(sender, e);
-            }
-                //    if (db.AddNewEmployee(loginBox.Text, passwordBox.Text, surnameBox.Text, nameBox.Text, patronymicBox.Text, dateBirth.Value, emailBox.Text, passportBox.Text, richGivenBy.Text, dateGiven.Value, textRegAddress.Text))
-                //    {
-                //        MessageBox.Show("Изменение данных прошло успешно");
-                //        this.Close();
-                //        if (Owner is ClientsCatalog)
-                //        {
-                //            (Owner as ClientsCatalog).InitializeDatagrid();
-                //            (Owner as ClientsCatalog).SelectLastRow();
-                //        }
-                //        else
-                //        {
-                //            LoginForm.GetInstance().Show();
-                //        }
-                //    }
 
-                //    else
-                //        MessageBox.Show("Ошибка");
-                //}
+                try
+                {
+                    byte[] img = null;
+                    FileStream fs = new FileStream(imgLoc, FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fs);
+                    img = br.ReadBytes((int)fs.Length);
+                    DataTable dt = db.RunSelect("Select * From Image where ID_employee = '" + user.Id + "' ");
+                    if (dt.Rows.Count > 0)
+                    {
+                        connection.Open();
+                        string sqlQuery = "update Image set Image = @images where ID_employee = '" + user.Id + "'  ";
+                        cmd = new SqlCommand(sqlQuery, connection);
+                        cmd.Parameters.Add(new SqlParameter("@images", img));
+                        int N = cmd.ExecuteNonQuery();
+                        connection.Close();
+                        MessageBox.Show(N.ToString() + " Фотография изменена");
+                    }
+                    else
+                    {
+                        connection.Open();
+                        string sqlQuery = "insert into Image values('" + user.Id + "', @images)";
+                        cmd = new SqlCommand(sqlQuery, connection);
+                        cmd.Parameters.Add(new SqlParameter("@images", img));
+                        int N = cmd.ExecuteNonQuery();
+                        MessageBox.Show(N.ToString() + " Фотография добавлена");
+                        connection.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                cancelButton_Click(sender, e);
+
             }
+
+           
+
+
+        }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
@@ -143,6 +184,23 @@ namespace GUI
             //    loginErrorPic.Visible = false;
             //}
             //else { loginErrorPic.Visible = true; }
+        }
+
+        private void ButtonImageChange_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog dlg = new OpenFileDialog();
+                dlg.Filter = "JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif|All Files (*.*)|*.*";
+                dlg.Title = "Выберите фотографию для клиента";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    imgLoc = dlg.FileName.ToString();
+                    pictureBox2.ImageLocation = imgLoc;
+                }
+            }
+            catch
+            { }
         }
 
         private void emailBox_TextChanged(object sender, EventArgs e)
