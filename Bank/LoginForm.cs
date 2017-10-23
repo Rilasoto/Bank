@@ -50,7 +50,7 @@ namespace GUI
             new RegForm().Show(this);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void submitButton_Click(object sender, EventArgs e)
         {
             User loggedUser = db.Login(textBox1.Text, textBox2.Text);
             if (loggedUser != null)
@@ -72,6 +72,22 @@ namespace GUI
         private void LoginForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox2.Focus();
+            }
+        }
+
+        private void textBox2_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                submitButton_Click(this, null);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)

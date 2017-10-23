@@ -81,6 +81,12 @@
     </Compile>
     <Compile Include="Currency.cs" />
     <Compile Include="DBAdapter.cs" />
+    <Compile Include="EmailList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmailList.Designer.cs">
+      <DependentUpon>EmailList.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExchangeRates.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClientsCatalog.resx">
       <DependentUpon>ClientsCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmailList.resx">
+      <DependentUpon>EmailList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExchangeRates.resx">
       <DependentUpon>ExchangeRates.cs</DependentUpon>

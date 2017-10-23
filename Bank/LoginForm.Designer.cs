@@ -51,6 +51,7 @@
             this.textBox1.TabIndex = 0;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
             // 
             // textBox2
             // 
@@ -62,6 +63,7 @@
             this.textBox2.TabIndex = 1;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox2.Enter += new System.EventHandler(this.textPassword_Enter);
+            this.textBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyUp);
             // 
             // buttonSubmit
             // 
@@ -72,7 +74,7 @@
             this.buttonSubmit.TabIndex = 3;
             this.buttonSubmit.Text = "Войти";
             this.buttonSubmit.UseVisualStyleBackColor = true;
-            this.buttonSubmit.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSubmit.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // linkLabelRegister
             // 
@@ -152,7 +154,6 @@
             // 
             // LoginForm
             // 
-            this.AcceptButton = this.buttonSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(209, 234);
