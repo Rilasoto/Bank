@@ -266,7 +266,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(614, 310);
             this.Name = "TransactionForm";
-            this.Text = "TransactionForm";
+            this.Text = "OurBank";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TransactionForm_FormClosed);
             this.Load += new System.EventHandler(this.TransactionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -68,8 +68,9 @@ namespace GUI
 
         }
 
-        private void buttonSubmit_Click(object sender, EventArgs e)
+        public void buttonSubmit_Click(object sender, EventArgs e)
         {
+
             // это скопированный код из формы регистрации, с кнопки регистрации. подходит ли он для вненсения измнений в существующую записьв бд?
             if (surnameBox.Text == "" || nameBox.Text == "" || patronymicBox.Text == "" || emailBox.Text == "" || passportBox.Text == "" || errorPassPic.Visible == true || pictureBox1.Visible ==true|| loginErrorPic.Visible == true || erroremail.Visible == true)
             {

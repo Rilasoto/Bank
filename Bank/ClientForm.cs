@@ -28,7 +28,7 @@ namespace GUI
             nameLabel.Text = user.Name;
             patronymicLabel.Text = user.Patronymic;
             LoadImage();
-
+            LoadLastTransactions();
 
             timer1.Start();
         }

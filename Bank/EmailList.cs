@@ -20,7 +20,7 @@ namespace GUI
             db = DBAdapter.DB.GetInstance();
             ShowEmails();
         }
-        void ShowEmails()
+       public void ShowEmails()
         {
             DataTable dt = db.RunSelect("select Surname,Name,Patronymic,email from Employees");
             
@@ -36,6 +36,7 @@ namespace GUI
                 i++;
             }
             richTextBox1.Text = output;
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -47,6 +48,11 @@ namespace GUI
         private void button1_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(output);
+        }
+
+        private void EmailList_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

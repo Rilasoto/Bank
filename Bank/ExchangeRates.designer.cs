@@ -215,7 +215,7 @@
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -241,6 +241,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ExchangeRates";
             this.Text = "OurBank";
+            this.Load += new System.EventHandler(this.ExchangeRates_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);

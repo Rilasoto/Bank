@@ -93,6 +93,7 @@
     <Compile Include="ExchangeRates.designer.cs">
       <DependentUpon>ExchangeRates.cs</DependentUpon>
     </Compile>
+    <Compile Include="ForTest.cs" />
     <Compile Include="InfoAboutBank.cs">
       <SubType>Form</SubType>
     </Compile>

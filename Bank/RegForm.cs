@@ -72,10 +72,11 @@ namespace GUI
             typedate = !typedate;
         }
 
-        private void buttonSubmit_Click(object sender, EventArgs e)
+        public void buttonSubmit_Click(object sender, EventArgs e)
         {
             if (isEditMode)//если включен режим редактирования
             {
+
                 if (surnameBox.Text == "" || nameBox.Text == "" || patronymicBox.Text == "" || emailBox.Text == "" || passportID.Text == "" || erroremail.Visible == true)
                 {
                     MessageBox.Show("Некоторые поля заполнены неверно!");
@@ -135,7 +136,7 @@ namespace GUI
 
             }
             try
-            {
+            { 
                 byte[] img = null;
                 FileStream fs = new FileStream(imgLoc, FileMode.Open, FileAccess.Read);
                 BinaryReader br = new BinaryReader(fs);

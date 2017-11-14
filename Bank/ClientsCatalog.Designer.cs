@@ -164,6 +164,7 @@
             this.MinimumSize = new System.Drawing.Size(1070, 430);
             this.Name = "ClientsCatalog";
             this.Text = "Управление информацией о клиентах";
+            this.Load += new System.EventHandler(this.ClientsCatalog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

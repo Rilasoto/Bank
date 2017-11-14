@@ -544,18 +544,18 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox surnameBox;
+        public System.Windows.Forms.TextBox surnameBox;
         private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.TextBox nameBox;
+        public System.Windows.Forms.TextBox nameBox;
         private System.Windows.Forms.Label labelPatronymic;
-        private System.Windows.Forms.TextBox patronymicBox;
+        public System.Windows.Forms.TextBox patronymicBox;
         private System.Windows.Forms.Label labelBirthDay;
         private System.Windows.Forms.Label labelPassport;
         private System.Windows.Forms.Label labelEmail;
-        private System.Windows.Forms.TextBox emailBox;
-        private System.Windows.Forms.DateTimePicker dateBirth;
+        public System.Windows.Forms.TextBox emailBox;
+        public System.Windows.Forms.DateTimePicker dateBirth;
         private System.Windows.Forms.Button buttonSubmit;
-        private System.Windows.Forms.MaskedTextBox passportID;
+        public System.Windows.Forms.MaskedTextBox passportID;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Timer timer1;
@@ -563,7 +563,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox erroremail;
         private System.Windows.Forms.Label loginLabel;
-        private System.Windows.Forms.TextBox loginBox;
+        public System.Windows.Forms.TextBox loginBox;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.TextBox passwordBox;
         private System.Windows.Forms.Label labelRepeat;
@@ -572,7 +572,7 @@
         private System.Windows.Forms.PictureBox loginErrorPic;
         private System.Windows.Forms.PictureBox errorPassPic;
         private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.RichTextBox givenByRichText;
+        public System.Windows.Forms.RichTextBox givenByRichText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateGiven;
         private System.Windows.Forms.Label label2;

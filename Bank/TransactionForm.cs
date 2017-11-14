@@ -152,16 +152,28 @@ namespace GUI
                 }
 
                 else                                                // Плата по услуге
-                {                                                             
-                    int IDAccount = Convert.ToInt32(db.RunSelect(@"Select Accounts.ID_account 
-                                                                from Accounts left join Employees on Accounts.Employee_ID = Employees.ID_Employee
-                                                                where Accounts.Employee_ID = '" +user.Id + "'").Rows[0][0]);
-                    db.RunInsert("Insert into Payments(Service_ID,Account_ID,Sum,DateOfPayment) values('" + IDService + "','" + IDAccount + "','" + sumTextBox.Text + "','" + DateTime.Now + "')");
+                {
+                    currentmoney = Convert.ToDouble(db.RunSelect(@"Select SummDebit
+                                                                        from Accounts 
+                                                                         where Employee_ID = '" + user.Id + "' ").Rows[0][0]); // текущий баланс дебетового счета
 
-                    db.RunInsert(@"update Accounts set SummDebit = SummDebit - '" + sumTextBox.Text + @"' 
+
+                    if (currentmoney >= Convert.ToDouble(sumTextBox.Text))
+                    {
+                        int IDAccount = Convert.ToInt32(db.RunSelect(@"Select Accounts.ID_account 
+                                                                from Accounts left join Employees on Accounts.Employee_ID = Employees.ID_Employee
+                                                                where Accounts.Employee_ID = '" + user.Id + "'").Rows[0][0]);
+                        db.RunInsert("Insert into Payments(Service_ID,Account_ID,Sum,DateOfPayment) values('" + IDService + "','" + IDAccount + "','" + sumTextBox.Text + "','" + DateTime.Now + "')");
+
+                        db.RunInsert(@"update Accounts set SummDebit = SummDebit - '" + sumTextBox.Text + @"' 
                                        where Employee_ID = '" + user.Id + "';"); //  снятие средств с дебетового счета
-                    (this.Owner as ClientForm).LoadLastTransactions();
-                    this.Close();
+                        (this.Owner as ClientForm).LoadLastTransactions();
+                        this.Close();
+                    }
+                    else { MessageBox.Show("На указанном счету не хватает средств!");
+                        sumTextBox.Text = "";
+                    }
+                    
                 }
 
                 //if (db.AddEntry(new string[] { servicesComboBox.SelectedValue.ToString(), accountsComboBox.SelectedItem.ToString(), sumTextBox.Text }, "Payments"))

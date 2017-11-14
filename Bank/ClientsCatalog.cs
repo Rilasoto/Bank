@@ -156,5 +156,10 @@ namespace GUI
         {
             new EmailList().Show(this);
         }
+
+        private void ClientsCatalog_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

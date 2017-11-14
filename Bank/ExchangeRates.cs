@@ -42,5 +42,10 @@ namespace GUI
                 LoginForm.GetInstance().Close();
             }
         }
+
+        private void ExchangeRates_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
