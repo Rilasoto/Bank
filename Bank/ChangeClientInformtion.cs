@@ -17,7 +17,7 @@ namespace GUI
 {
     public partial class ChangeClientInformtion : Form
     {
-        User user;
+        public User user;
         public int day = 0, hour = 0, minute = 0;
         double second = 0.0;
         bool typedate = false;
@@ -89,10 +89,10 @@ namespace GUI
                                           Passport_Givenwhen = '" + dateGiven.Text + @"',
                                           Passport_RegistrationAddress = '" + textRegAddress.Text + @"'
                                           where ID_Employee = '"+ user.Id+"'");
-
+                byte[] img = null;
                 try
                 {
-                    byte[] img = null;
+                    
                     FileStream fs = new FileStream(imgLoc, FileMode.Open, FileAccess.Read);
                     BinaryReader br = new BinaryReader(fs);
                     img = br.ReadBytes((int)fs.Length);
@@ -120,7 +120,35 @@ namespace GUI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    imgLoc = "C:\\Users\\tvoix\\Desktop\\мемасики\\4.jpg";
+                    FileStream fs = new FileStream(imgLoc, FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fs);
+                    img = br.ReadBytes((int)fs.Length);
+                    DataTable dt = db.RunSelect("Select * From Image where ID_employee = '" + user.Id + "' ");
+                    if (dt.Rows.Count > 0)
+                    {
+                        connection.Open();
+                        string sqlQuery = "update Image set Image = @images where ID_employee = '" + user.Id + "'  ";
+                        cmd = new SqlCommand(sqlQuery, connection);
+                        cmd.Parameters.Add(new SqlParameter("@images", img));
+                        int N = cmd.ExecuteNonQuery();
+                        connection.Close();
+                        MessageBox.Show(N.ToString() + " Фотография изменена");
+                    }
+                    else
+                    {
+                        connection.Open();
+                        string sqlQuery = "insert into Image values('" + user.Id + "', @images)";
+                        cmd = new SqlCommand(sqlQuery, connection);
+                        cmd.Parameters.Add(new SqlParameter("@images", img));
+                        int N = cmd.ExecuteNonQuery();
+                        MessageBox.Show(N.ToString() + " Фотография добавлена");
+                        connection.Close();
+                    }
+
+
+
+                    //MessageBox.Show(ex.Message);
                 }
 
                 cancelButton_Click(sender, e);

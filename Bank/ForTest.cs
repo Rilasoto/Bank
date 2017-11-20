@@ -13,7 +13,13 @@ namespace GUI.Tests
         static DB sql = new DB();
         public static int Countrecords(string Tables)
         {
-           return  sql.RunSelect("Select * from '"+ Tables + "'").Rows.Count;
+           return  sql.RunSelect("Select * from "+ Tables + "").Rows.Count;
+        }
+        public static byte[] FindImage(int id)
+        {
+            string sql1 = "Select * From Image Where ID_employee = '" + id + "'";
+            byte[] img = sql.RunSelectForImage(sql1);
+            return img;
         }
 
 

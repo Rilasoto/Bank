@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Logics;
+using System.IO;
 
 
 namespace GUI.Tests
@@ -14,7 +16,7 @@ namespace GUI.Tests
     {
       
         [TestMethod()]
-        public void ShowEmailsTest()
+        public void EmployeesInsertCheck()
         {
             // Тест на добавление пользователя
           int countbefore =  ForTest.Countrecords("Employees");
@@ -31,16 +33,48 @@ namespace GUI.Tests
 
             if (countafter - countbefore == 1)
             {
-                // Успех  Вставить код 
+                // Успех  Вставить код  
+               
             }
             else
             {
                 // Провал Вставить код 
             }
+        }
+        [TestMethod()]
+        public void ImageinsertCheck()
+        {
+            // Тест на добавление Картинки (Изменил сам метод добавления на добавление картинки   imgLoc = "C:\\Users\\tvoix\\Desktop\\мемасики\\4.jpg"; по умолчанию)
+            User user = new User();
+            user.Id = 1017;
+            byte[] imagebefore = ForTest.FindImage(user.Id);
 
+            // картинка которая должна быть!!
+            string imgLoc = "C:\\Users\\tvoix\\Desktop\\мемасики\\4.jpg";
+            FileStream fs = new FileStream(imgLoc, FileMode.Open, FileAccess.Read);
+            BinaryReader br = new BinaryReader(fs);
+            byte[]  img = br.ReadBytes((int)fs.Length);
+            //
 
+            ChangeClientInformtion form = new ChangeClientInformtion(user);
+            form.nameBox.Text = "Влад";
+            form.surnameBox.Text = "Харитонов";
+            form.patronymicBox.Text = "Ванович";
+            form.emailBox.Text = "123@gmail.com";
+            form.passportBox.Text = "123456789";
+            form.buttonSubmit_Click(null, null);
 
+            byte[] imageafter = ForTest.FindImage(user.Id);
 
+            if (img == imageafter)
+            {
+                // Успех  Вставить код  
+
+            }
+            else
+            {
+                // Провал Вставить код 
+            }
         }
     }
 
