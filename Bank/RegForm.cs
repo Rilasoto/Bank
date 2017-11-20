@@ -17,6 +17,7 @@ namespace GUI
 {
     public partial class RegForm : Form
     {
+        public bool bollean = false;
         public int day = 0, hour = 0, minute = 0;
         double second = 0.0;
         bool typedate = false;
@@ -135,6 +136,8 @@ namespace GUI
                 }
 
             }
+            
+            if(bollean)
             try
             { 
                 byte[] img = null;

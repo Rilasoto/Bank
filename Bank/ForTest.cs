@@ -11,9 +11,9 @@ namespace GUI.Tests
    public static class ForTest
     {
         static DB sql = new DB();
-        public static int Countrecords()
+        public static int Countrecords(string Tables)
         {
-           return  sql.RunSelect("Select * from Employees").Rows.Count;
+           return  sql.RunSelect("Select * from '"+ Tables + "'").Rows.Count;
         }
 
 

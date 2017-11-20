@@ -16,17 +16,27 @@ namespace GUI.Tests
         [TestMethod()]
         public void ShowEmailsTest()
         {
-          int countbefore =  ForTest.Countrecords();
+            // Тест на добавление пользователя
+          int countbefore =  ForTest.Countrecords("Employees");
 
             RegForm form = new RegForm();
             form.nameBox.Text = "Влад";
             form.surnameBox.Text = "Харитонов";
             form.patronymicBox.Text = "Ванович";
+            form.emailBox.Text = "123@gmail.com";
+            form.passportID.Text = "123456789";
             form.buttonSubmit_Click(null, null);
 
-           int countafter = ForTest.Countrecords();
+           int countafter = ForTest.Countrecords("Employees");
 
-
+            if (countafter - countbefore == 1)
+            {
+                // Успех  Вставить код 
+            }
+            else
+            {
+                // Провал Вставить код 
+            }
 
 
 

@@ -368,7 +368,6 @@
             this.loginErrorPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.loginErrorPic.TabIndex = 8;
             this.loginErrorPic.TabStop = false;
-            this.loginErrorPic.Visible = false;
             // 
             // errorPassPic
             // 
