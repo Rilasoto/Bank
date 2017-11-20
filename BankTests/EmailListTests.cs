@@ -31,15 +31,8 @@ namespace GUI.Tests
 
            int countafter = ForTest.Countrecords("Employees");
 
-            if (countafter - countbefore == 1)
-            {
-                // Успех  Вставить код  
-               
-            }
-            else
-            {
-                // Провал Вставить код 
-            }
+            Assert.AreEqual(countafter - 1, countbefore );
+           
         }
         [TestMethod()]
         public void ImageinsertCheck()
@@ -66,15 +59,8 @@ namespace GUI.Tests
 
             byte[] imageafter = ForTest.FindImage(user.Id);
 
-            if (img == imageafter)
-            {
-                // Успех  Вставить код  
-
-            }
-            else
-            {
-                // Провал Вставить код 
-            }
+            Assert.AreEqual(img , imageafter);
+           
         }
     }
 
